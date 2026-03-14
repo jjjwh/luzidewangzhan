@@ -28,4 +28,4 @@ jobs:
       - name: 登录并部署（纯静态站点，直接部署根目录）
         run: |
           tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
-          tcb hosting deploy deploy_out /home -e ${{ secrets.TCB_ENV_ID }} --verbose
+          tcb hosting deploy deploy_out / -e ${{ secrets.TCB_ENV_ID }} --verbose
