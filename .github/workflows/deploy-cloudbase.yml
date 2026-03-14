@@ -1,0 +1,22 @@
+# 推送到 main 分支时，自动部署到腾讯云 CloudBase 静态托管（国内可访问）
+name: Deploy to CloudBase Static Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 CloudBase CLI
+        run: npm install -g @cloudbase/cli
+
+      - name: 登录并部署（纯静态站点，直接部署根目录）
+        run: |
+          tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
+          tcb hosting deploy . /home -e ${{ secrets.TCB_ENV_ID }}
