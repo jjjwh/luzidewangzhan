@@ -1,0 +1,281 @@
+/* --- 圆圈动画 (Ellipse Animation) --- */
+ellipse.svelte-1a02lkq {
+    -webkit-transition: cx .7s, cy .7s, rx .7s, ry .7s;
+    -o-transition: cx .7s, cy .7s, rx .7s, ry .7s;
+    transition: cx .7s, cy .7s, rx .7s, ry .7s;
+}
+
+/* 圆圈高亮覆盖层 */
+ellipse.circle-overlay.svelte-1a02lkq {
+    stroke: var(--color-highlight);
+}
+
+/* --- 滚动交互容器 (Scrolly Container) --- */
+#scrolly.svelte-1ifywjh {
+    position: relative;
+    margin: 0 auto;
+    width: 94%; /* Mobile: 3% margin on each side, > 8px */
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr; /* 默认一列布局 */
+}
+
+/* --- 左侧固定图片区 (Sticky Figure) --- */
+figure.svelte-1ifywjh {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    height: clamp(20em, 90vh, 80em); /* 智能高度 */
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    transform: translate(0);
+    z-index: 0;
+}
+
+/* --- 右侧滚动文字区 (Scroll Area) --- */
+.scroll-area.svelte-1ifywjh {
+    position: relative;
+    z-index: 1;
+}
+
+/* 图片来源说明 */
+.illustration-source.svelte-1ifywjh {
+    width: 90%;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1;
+    font-style: italic;
+}
+
+/* 章节标题 */
+h3.svelte-1ifywjh {
+    font-size: 2rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 500;
+    background-color: var(--color-background-transparent);
+    border-radius: 2px;
+    padding: 1rem;
+    z-index: 2;
+    text-align: center;
+}
+
+/* --- 滚动步骤卡片 (Step Card) --- */
+.step.svelte-1ifywjh {
+    width: 100%;
+    margin: 30rem auto 2rem; /* 上下留出巨大间距，为了滚动效果 */
+    padding: 1rem;
+    opacity: 1;
+    transition: opacity .4s;
+    pointer-events: all;
+    background-color: var(--color-background-transparent); /* 半透明背景 */
+    border-radius: 2px;
+    position: relative;
+    z-index: 10;
+}
+
+.step.svelte-1ifywjh:first-child {
+    margin-top: 15rem;
+}
+
+.step.svelte-1ifywjh:last-child {
+    margin-bottom: 1000px;
+}
+
+/* 步骤标题 */
+.step-title.svelte-1ifywjh {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+/* 标题下方的红线装饰 */
+.step-title.svelte-1ifywjh:after {
+    display: block;
+    content: "";
+    background: var(--color-highlight);
+    height: 3px;
+    width: 220px;
+    margin: 1rem 0 0;
+    border-radius: 2px;
+}
+
+/* 步骤正文 */
+.step-text.svelte-1ifywjh {
+    font-size: 1.3rem;
+    padding: 1rem 0;
+}
+
+/* 桌面端布局 (>= 50em) */
+    @media only screen and (min-width: 50em) {
+    #scrolly.svelte-1ifywjh {
+        /* 调整列宽比例：微调左右比例以平衡间距 */
+        /* 左: 28% (加宽以增加左侧间距), 中: 50%, 右: 22% (收缩以减小右侧间距) */
+        /* 这样可以让中间模块在视觉上向右移动，平衡左右间距 */
+        grid-template-columns: 28fr 50fr 22fr;
+        max-width: 2500px;
+        margin: 0 auto;
+        width: 96%;
+        column-gap: 0;
+    }
+
+    /* 左侧固定容器 */
+    #scrolly.svelte-1ifywjh::before {
+        content: "";
+        grid-column: 1;
+        grid-row: 1 / 1000;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        background-image: var(--left-image);
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        padding-left: 2vw;
+        padding-right: 0;
+        background-origin: content-box;
+        background-clip: content-box;
+        /* 改为居中对齐，与右侧保持垂直视觉一致性 */
+        background-position: left center;
+        /* 强制图片保持比例缩放，不被拉伸或裁剪 */
+        background-size: contain;
+        z-index: 100;
+    }
+
+    /* 右侧固定容器 */
+    #scrolly.svelte-1ifywjh::after {
+        content: "";
+        grid-column: 3;
+        grid-row: 1 / 1000;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        background-image: var(--right-image);
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        /* 恢复垂直内边距，解决“顶格”问题，并确保上下同齐 */
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        padding-left: 0;
+        padding-right: 2vw;
+        background-origin: content-box;
+        background-clip: content-box;
+        background-position: right center;
+        background-size: contain;
+        z-index: 100;
+    }
+
+    /* 中间：恢复 SVG 交互动画 */
+    figure.svelte-1ifywjh {
+        grid-column: 2;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 0;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 垂直居中 */
+        align-items: center;
+        background: none;
+        margin: 0;
+    }
+
+    /* 恢复 Figure 中原有的 SVG 内容（圆圈聚焦动画） */
+    figure.svelte-1ifywjh > * {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* 中间：SVG 容器 */
+    figure.svelte-1ifywjh > div {
+        position: relative;
+        width: 100%;
+        /* 极大增加中间图片高度占比，使其填满中间区域 */
+        height: 85vh;
+        background: none;
+        order: 2;
+    }
+
+    /* 恢复 SVG 内部 image 的显示 */
+    figure.svelte-1ifywjh svg image {
+        display: block;
+        opacity: 1;
+    }
+
+    /* 确保 SVG 撑满这个 div */
+    figure.svelte-1ifywjh svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 中间：滚动文字区 */
+    .scroll-area.svelte-1ifywjh {
+        grid-column: 2;
+        margin-top: 50vh;
+        z-index: 6;
+        pointer-events: none; /* 让鼠标事件穿透文字区域，以便操作图片（如果有交互） */
+    }
+    
+    /* 恢复文字区域的交互 */
+    .scroll-area.svelte-1ifywjh > * {
+        pointer-events: auto;
+    }
+
+    h3.svelte-1ifywjh {
+        font-size: 3rem;
+        /* 确保标题在最上方 */
+        order: 1;
+        margin-bottom: 2rem; /* 标题和图片之间的间距 */
+        background-color: var(--color-background-transparent); /* 恢复原来的背景色 */
+        width: 100%;
+    }
+
+    .step.svelte-1ifywjh {
+        margin: 50rem auto 2rem;
+        background-color: var(--color-background-transparent); /* 恢复原来的背景色 */
+    }
+}
+
+/* --- God Specific Background Images --- */
+/* Add both lowercase (name) and TitleCase (title) selectors to be safe */
+#gods-iconography-tlalte, #gods-iconography-Tlaltecuhtli {
+    --left-image: url(../../assets/img/tu1zuo.svg);
+    --right-image: url(../../assets/img/tu1you.svg);
+}
+
+#gods-iconography-tezca, #gods-iconography-Tezcatlipoca {
+    --left-image: url(../../assets/img/tu2zuo.svg);
+    --right-image: url(../../assets/img/tu2you.svg);
+}
+
+#gods-iconography-tlalte2, #gods-iconography-Tlaltecuhtli2 {
+    --left-image: url(../../assets/img/tu3zuo.svg);
+    --right-image: url(../../assets/img/tu3you.svg);
+}
+
+#gods-iconography-tezca2, #gods-iconography-Tezcatlipoca2 {
+    --left-image: url(../../assets/img/tu4zuo.svg);
+    --right-image: url(../../assets/img/tu4you.svg);
+}
+
+#gods-iconography-tlalte3, #gods-iconography-Tlaltecuhtli3 {
+    --left-image: url(../../assets/img/tu5zuo.svg);
+    --right-image: url(../../assets/img/tu5you.svg);
+}
+
+#gods-iconography-tezca3, #gods-iconography-Tezcatlipoca3 {
+    --left-image: url(../../assets/img/tu6zuo.svg);
+    --right-image: url(../../assets/img/tu6you.svg);
+}

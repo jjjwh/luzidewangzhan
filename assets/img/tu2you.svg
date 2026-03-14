@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295.74 1021.52">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: #040000;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-6, .cls-7, .cls-9 {
+        isolation: isolate;
+      }
+
+      .cls-1, .cls-2, .cls-6 {
+        font-family: FZVariableLanTHK-Normal, 'FZVariableLanTHK Normal';
+        font-variation-settings: ';
+      }
+
+      .cls-1, .cls-4, .cls-6 {
+        font-size: 11.43px;
+      }
+
+      .cls-2 {
+        font-size: 9.74px;
+        letter-spacing: 0em;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-10, .cls-11, .cls-16, .cls-19 {
+        stroke-width: 2px;
+      }
+
+      .cls-10, .cls-12, .cls-15, .cls-18 {
+        stroke: #e0b153;
+      }
+
+      .cls-11 {
+        stroke: #06653e;
+      }
+
+      .cls-3 {
+        font-size: 20.79px;
+        letter-spacing: -.2em;
+      }
+
+      .cls-3, .cls-5, .cls-7, .cls-8 {
+        font-family: HanyiSentySuciTablet, HanyiSentySuciTablet;
+      }
+
+      .cls-4 {
+        font-family: FZVariableLanTHK-Regular, 'FZVariableLanTHK Regular';
+        font-variation-settings: ';
+      }
+
+      .cls-5 {
+        letter-spacing: -.2em;
+      }
+
+      .cls-5, .cls-7, .cls-8 {
+        font-size: 14.55px;
+      }
+
+      .cls-21 {
+        fill: #231815;
+        font-family: FZVariableLanTHK-Light, 'FZVariableLanTHK Light';
+        font-size: 18px;
+        font-variation-settings: ';
+        font-weight: 300;
+      }
+
+      .cls-22 {
+        fill: #e0b153;
+      }
+
+      .cls-6 {
+        letter-spacing: -.1em;
+      }
+
+      .cls-23 {
+        opacity: .25;
+      }
+
+      .cls-24 {
+        fill: #c56d64;
+      }
+
+      .cls-25 {
+        opacity: .55;
+      }
+
+      .cls-12, .cls-13, .cls-15, .cls-17, .cls-18, .cls-20 {
+        stroke-width: .75px;
+      }
+
+      .cls-12, .cls-20 {
+        stroke-dasharray: 12.3 1.03 2.05 1.03;
+      }
+
+      .cls-7, .cls-26 {
+        letter-spacing: -.2em;
+      }
+
+      .cls-13, .cls-17, .cls-20 {
+        stroke: #c56d64;
+      }
+
+      .cls-13, .cls-18 {
+        stroke-dasharray: 2.05 1.03;
+      }
+
+      .cls-14 {
+        stroke: #0d2712;
+        stroke-width: 1.5px;
+      }
+
+      .cls-27 {
+        opacity: .15;
+      }
+
+      .cls-28 {
+        fill: #c84c45;
+      }
+
+      .cls-29 {
+        opacity: .65;
+      }
+
+      .cls-16 {
+        stroke: #378d39;
+      }
+
+      .cls-30 {
+        opacity: .2;
+      }
+
+      .cls-31 {
+        fill: #be6a62;
+      }
+
+      .cls-32 {
+        fill: #5f8443;
+      }
+
+      .cls-33 {
+        opacity: .45;
+      }
+
+      .cls-34 {
+        letter-spacing: -1.06em;
+      }
+
+      .cls-35 {
+        opacity: .5;
+      }
+
+      .cls-19 {
+        stroke: #b7947a;
+      }
+
+      .cls-36 {
+        fill: #9eb88c;
+      }
+    </style>
+  </defs>
+  <g id="_图层_1-2" data-name="图层 1">
+    <text class="cls-21" transform="translate(2.84 15.47)"><tspan x="0" y="0">具体节日习俗</tspan></text>
+    <text class="cls-21" transform="translate(2.84 684.47)"><tspan x="0" y="0">节日日期分布</tspan></text>
+    <g>
+      <g class="cls-27">
+        <path class="cls-22" d="M211.65,985.87c-18.79,10.81-40.16,16.54-61.84,16.57v-123.68s61.84,107.11,61.84,107.11Z"/>
+      </g>
+      <g class="cls-27">
+        <path class="cls-22" d="M259.83,938.97c-10.87,18.75-26.51,34.4-45.27,45.27l-61.84-107.11,107.11,61.84Z"/>
+      </g>
+      <g class="cls-25">
+        <path class="cls-22" d="M277.52,873.89c-.04,21.68-5.76,43.05-16.57,61.84l-107.11-61.84h123.68Z"/>
+      </g>
+      <g>
+        <g>
+          <line class="cls-15" x1="81.98" y1="758.15" x2="84.98" y2="763.35"/>
+          <line class="cls-18" x1="85.49" y1="764.23" x2="86.78" y2="766.45"/>
+          <line class="cls-12" x1="87.03" y1="766.9" x2="209.79" y2="979.52"/>
+          <line class="cls-15" x1="210.05" y1="979.97" x2="213.05" y2="985.16"/>
+        </g>
+        <g>
+          <line class="cls-15" x1="261.02" y1="806.12" x2="255.83" y2="809.12"/>
+          <line class="cls-18" x1="254.94" y1="809.64" x2="252.72" y2="810.92"/>
+          <line class="cls-12" x1="252.28" y1="811.17" x2="39.65" y2="933.93"/>
+          <line class="cls-15" x1="39.2" y1="934.19" x2="34.01" y2="937.19"/>
+        </g>
+        <g>
+          <line class="cls-15" x1="34.01" y1="806.12" x2="39.2" y2="809.12"/>
+          <line class="cls-18" x1="40.09" y1="809.64" x2="42.31" y2="810.92"/>
+          <line class="cls-12" x1="42.76" y1="811.17" x2="255.38" y2="933.93"/>
+          <line class="cls-15" x1="255.83" y1="934.19" x2="261.02" y2="937.19"/>
+        </g>
+        <g>
+          <line class="cls-15" x1="213.05" y1="758.15" x2="210.05" y2="763.35"/>
+          <line class="cls-18" x1="209.54" y1="764.23" x2="208.25" y2="766.45"/>
+          <line class="cls-12" x1="208" y1="766.9" x2="85.24" y2="979.52"/>
+          <line class="cls-15" x1="84.98" y1="979.97" x2="81.98" y2="985.16"/>
+        </g>
+        <line class="cls-14" x1="147.52" y1="740.59" x2="147.52" y2="1002.72"/>
+        <line class="cls-14" x1="278.58" y1="871.66" x2="16.45" y2="871.66"/>
+        <path class="cls-16" d="M151.51,736.16c71.18,2.89,128.33,60.21,130.96,131.45"/>
+        <path class="cls-11" d="M151.51,1007.45c71.18-2.89,128.33-60.21,130.96-131.45"/>
+        <path class="cls-19" d="M143.52,736.16c-71.18,2.89-128.33,60.21-130.96,131.45"/>
+        <path class="cls-10" d="M143.52,1007.45c-71.18-2.89-128.33-60.21-130.96-131.45"/>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(150.67 732.28)"><tspan x="0" y="0">春</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(150.67 1019.91)"><tspan x="0" y="0">夏</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(131.19 732.28)"><tspan x="0" y="0">冬</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(131.19 1019.91)"><tspan x="0" y="0">秋</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-2" transform="translate(205.78 736.13)"><tspan x="0" y="0">一</tspan><tspan x="0" y="9.73">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-2" transform="translate(259.76 782.15)"><tspan x="0" y="0">二</tspan><tspan x="0" y="9.73">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(284.3 857.95)"><tspan x="0" y="0">三</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(205.54 1006.64)"><tspan x="0" y="0">六</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(259.52 960.61)"><tspan x="0" y="0">五</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(284.3 886.27)"><tspan x="0" y="0">四</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-6" transform="translate(76.05 725.59)"><tspan x="0" y="0">十</tspan><tspan x="0" y="10.29">二</tspan><tspan x="0" y="20.58">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-6" transform="translate(24.3 772.88)"><tspan x="0" y="0">十</tspan><tspan x="0" y="10.29">一</tspan><tspan x="0" y="20.58">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(.21 857.95)"><tspan x="0" y="0">十</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(79.01 1006.64)"><tspan x="0" y="0">七</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(24.87 960.61)"><tspan x="0" y="0">八</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(.36 886.27)"><tspan x="0" y="0">九</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+      </g>
+      <g class="cls-27">
+        <path class="cls-22" d="M16.84,869.89c.04-21.68,5.76-43.05,16.57-61.84l107.11,61.84H16.84Z"/>
+      </g>
+      <path class="cls-22" d="M274.96,877.41c-1.34.83-2.88,1.46-4.56,1.91,1.68.44,3.22,1.08,4.56,1.91-4.77,0-1.52.07-4.26.03-4.75-.06-4.46-.42-7.01-1.94,2.55-1.52,2.26-1.88,7.01-1.94,2.74-.03-.51.03,4.26.03Z"/>
+      <path class="cls-22" d="M274.55,884.48c-1.44.64-3.05,1.05-4.78,1.25,1.6.67,3.04,1.51,4.25,2.52-4.72-.66-1.52-.15-4.22-.56-4.7-.72-4.35-1.03-6.67-2.89,2.74-1.15,2.5-1.54,7.21-.94,2.72.35-.51-.04,4.22.62Z"/>
+      <path class="cls-22" d="M273.32,890.97c-1.46.58-3.09.94-4.82,1.09,1.57.73,2.98,1.62,4.16,2.67-4.7-.83-1.51-.2-4.2-.71-4.67-.88-4.32-1.19-6.57-3.12,2.78-1.05,2.55-1.46,7.24-.69,2.7.44-.51-.06,4.19.77Z"/>
+      <path class="cls-22" d="M271.44,897.9c-1.5.46-3.16.67-4.89.66,1.5.86,2.83,1.87,3.91,3.02-4.61-1.23-1.49-.33-4.12-1.07-4.57-1.29-4.2-1.56-6.27-3.69,2.86-.81,2.67-1.23,7.27-.06,2.65.68-.5-.1,4.11,1.13Z"/>
+      <path class="cls-22" d="M32.67,815.41c1.57-.09,3.23.08,4.91.49-1.26-1.19-2.32-2.48-3.1-3.84,4.2,2.27,1.37.67,3.76,2,4.15,2.31,3.72,2.49,5.25,5.04-2.97.12-2.88.58-7.09-1.63-2.43-1.27.46.21-3.73-2.05Z"/>
+      <path class="cls-22" d="M256.13,940.35c-1.57-.11-3.19-.5-4.81-1.13,1.1,1.34,1.98,2.76,2.57,4.21-3.87-2.8-1.27-.84-3.47-2.47-3.81-2.83-3.37-2.95-4.54-5.68,2.96.27,2.93-.2,6.81,2.54,2.24,1.58-.43-.27,3.44,2.52Z"/>
+      <path class="cls-22" d="M205.1,986.67c0-1.57-.26-3.22-.75-4.88,1.25,1.2,2.6,2.18,4,2.89-2.49-4.07-.74-1.33-2.2-3.65-2.53-4.02-2.68-3.58-5.31-4.97.04,2.97-.42,2.91,2.01,6.99,1.4,2.35-.24-.45,2.25,3.62Z"/>
+    </g>
+    <g>
+      <rect class="cls-32" x="190.25" y="587.83" width="5.77" height="41.88"/>
+      <rect class="cls-24" x="224.54" y="587.83" width="5.77" height="41.88"/>
+      <rect class="cls-22" x="258.84" y="587.83" width="5.77" height="41.88"/>
+      <g class="cls-9">
+        <text class="cls-1" transform="translate(268.21 596.7)"><tspan x="0" y="0">农</tspan><tspan x="0" y="11.43">事</tspan><tspan x="0" y="22.86">娱</tspan><tspan x="0" y="34.3">乐</tspan><tspan x="0" y="45.73">习</tspan><tspan x="0" y="57.16">俗</tspan></text>
+      </g>
+      <g class="cls-9">
+        <text class="cls-1" transform="translate(230.81 596.7)"><tspan x="0" y="0">祈</tspan><tspan x="0" y="11.43">福</tspan><tspan x="0" y="22.86">祭</tspan><tspan x="0" y="34.3">祀</tspan><tspan x="0" y="45.73">习</tspan><tspan x="0" y="57.16">俗</tspan></text>
+      </g>
+      <g class="cls-9">
+        <text class="cls-1" transform="translate(197.56 596.7)"><tspan x="0" y="0">生</tspan><tspan x="0" y="11.43">产</tspan><tspan x="0" y="22.86">过</tspan><tspan x="0" y="34.3">程</tspan><tspan x="0" y="45.73">习</tspan><tspan x="0" y="57.16">俗</tspan></text>
+      </g>
+      <g>
+        <rect class="cls-22" x="7.02" y="509.29" width="36.49" height="4.53"/>
+        <rect class="cls-22" x="45.83" y="509.29" width="36.49" height="4.53"/>
+        <rect class="cls-22" x="84.64" y="509.29" width="36.49" height="4.53"/>
+        <rect class="cls-22" x="123.45" y="509.29" width="36.49" height="4.53"/>
+        <rect class="cls-22" x="162.26" y="509.29" width="36.49" height="4.53"/>
+        <rect class="cls-22" x="201.07" y="509.29" width="36.49" height="4.53"/>
+        <rect class="cls-22" x="239.88" y="509.29" width="36.49" height="4.53"/>
+        <g class="cls-35">
+          <path class="cls-36" d="M167.62,76.69c0,111.32-32.37,167.61-63.67,222.05-31.08,54.06-60.44,105.11-60.44,209.62h-18.24c0-111.32,32.37-167.61,63.67-222.05,31.08-54.06,60.44-105.11,60.44-209.62h18.24Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-31" d="M116.65,76.69c0,110.54-23.73,166.58-46.68,220.79-22.99,54.3-44.7,105.58-44.7,210.88H7.02c0-110.54,23.73-166.58,46.68-220.79,22.99-54.3,44.7-105.58,44.7-210.88h18.24Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-36" d="M176.74,76.69c0,109.27-24.27,164.73-47.74,218.38-24.01,54.88-46.69,106.72-46.69,213.29h-9.12c0-109.27,24.27-164.73,47.74-218.38,24.01-54.88,46.69-106.72,46.69-213.29h9.12Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-31" d="M73.19,508.36h-9.12c0-107.9-.37-162.75-.72-215.79-.35-53.07-.72-107.94-.72-215.88h9.12c0,107.9.37,162.75.72,215.79.35,53.07.72,107.94.72,215.88Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-22" d="M64.07,508.36h-9.12c0-107.58-5.58-162.28-10.97-215.17-5.43-53.22-11.04-108.25-11.04-216.5h9.12c0,107.58,5.58,162.28,10.97,215.17,5.43,53.22,11.04,108.25,11.04,216.5Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-22" d="M54.95,508.36h-9.12c0-107.37-9.23-161.96-18.15-214.75-9.01-53.32-18.33-108.46-18.33-216.92h9.12c0,107.37,9.23,161.96,18.15,214.75,9.01,53.32,18.33,108.46,18.33,216.92Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-36" d="M188.91,76.69c0,109.25-17.43,164.74-34.28,218.41-17.23,54.86-33.5,106.67-33.5,213.26h-12.16c0-109.25,17.43-164.74,34.28-218.41,17.23-54.86,33.5-106.67,33.5-213.26h12.16Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-31" d="M108.96,508.36h-12.16c0-107.41-6.34-162.02-12.46-214.83-6.18-53.3-12.58-108.42-12.58-216.84h12.16c0,107.41,6.34,162.02,12.46,214.83,6.18,53.3,12.58,108.42,12.58,216.84Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-22" d="M96.8,508.36h-12.16c0-106.62-15.89-158.45-32.71-213.32-16.45-53.65-33.46-109.14-33.46-218.35h12.16c0,106.62,15.89,158.45,32.71,213.32,16.45,53.65,33.46,109.14,33.46,218.35Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-36" d="M201.07,76.69c0,108.74-10.53,164.01-20.72,217.46-10.04,52.66-20.41,107.11-20.41,214.21h-12.16c0-108.74,10.53-164.01,20.72-217.46,10.04-52.66,20.41-107.11,20.41-214.21h12.16Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-31" d="M135.61,508.36h-12.16c0-107.13-9.98-161.59-19.62-214.27-9.79-53.44-19.91-108.69-19.91-217.4h12.16c0,107.13,9.98,161.59,19.62,214.27,9.79,53.44,19.91,108.69,19.91,217.4Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-31" d="M147.77,508.36h-12.16c0-107.53-4.8-162.2-9.45-215.07-4.68-53.24-9.51-108.3-9.51-216.6h12.16c0,107.53,4.8,162.2,9.45,215.07,4.68,53.24,9.51,108.3,9.51,216.6Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-36" d="M237.56,76.69c0,110.25-10.07,166.27-19.81,220.45-9.77,54.32-19,105.64-19,211.22h-36.49c0-110.25,10.07-166.27,19.81-220.45,9.77-54.32,19-105.64,19-211.22h36.49Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-36" d="M255.8,76.69c0,108.47-4.66,163.61-9.17,216.94-4.46,52.78-9.08,107.37-9.08,214.73h-18.24c0-108.47,4.66-163.61,9.17-216.94,4.46-52.78,9.08-107.37,9.08-214.73h18.24Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-31" d="M219.31,508.36h-18.24c0-105.8-17.23-157.27-35.47-211.76-18.09-54.02-36.79-109.88-36.79-219.91h18.24c0,105.8,17.23,157.27,35.47,211.76,18.09,54.02,36.79,109.88,36.79,219.91Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-36" d="M276.37,508.36h-18.24c0-107.85-.59-162.67-1.16-215.69-.57-53.09-1.16-107.99-1.16-215.98h18.24c0,107.85.59,162.67,1.16,215.69.57,53.09,1.16,107.99,1.16,215.98Z"/>
+        </g>
+        <g class="cls-35">
+          <path class="cls-22" d="M258.12,508.36h-18.24c0-103.08-46.59-153.92-95.92-207.74-50.09-54.66-101.89-111.17-101.89-223.93h18.24c0,103.08,46.59,153.92,95.92,207.74,50.09,54.66,101.89,111.17,101.89,223.93Z"/>
+        </g>
+        <text class="cls-3" transform="translate(13.68 49.4)"><tspan x="0" y="0">歌</tspan><tspan x="0" y="16.63">舞</tspan></text>
+        <text class="cls-3" transform="translate(38.66 49.43)"><tspan x="0" y="0">宴</tspan><tspan x="0" y="16.63">请</tspan></text>
+        <text class="cls-3" transform="translate(72.4 49.48)"><tspan x="0" y="0">祭</tspan><tspan x="0" y="16.63">神</tspan></text>
+        <text class="cls-7" transform="translate(18.39 530.58)"><tspan x="0" y="0">仡</tspan><tspan x="0" y="11.64">佬</tspan><tspan x="0" y="23.28">牛</tspan><tspan x="0" y="34.92">王</tspan><tspan x="0" y="46.56">节</tspan></text>
+        <text class="cls-7" transform="translate(56.33 530.58)"><tspan x="0" y="0">布</tspan><tspan x="0" y="11.64">依</tspan><tspan x="0" y="23.28">牛</tspan><tspan x="0" y="34.92">王</tspan><tspan x="0" y="46.56">节</tspan></text>
+        <text class="cls-7" transform="translate(94.27 530.58)"><tspan x="0" y="0">土</tspan><tspan x="0" y="11.64">家</tspan><tspan x="0" y="23.28">族</tspan><tspan x="0" y="34.92">牛</tspan><tspan x="0" y="46.56">王</tspan><tspan x="0" y="58.2">节</tspan></text>
+        <text class="cls-7" transform="translate(132.21 530.58)"><tspan x="0" y="0">苗</tspan><tspan x="0" y="11.64">族</tspan><tspan x="0" y="23.28">牛</tspan><tspan x="0" y="34.92">王</tspan><tspan x="0" y="46.56">节</tspan></text>
+        <text class="cls-7" transform="translate(170.14 530.58)"><tspan x="0" y="0">浴</tspan><tspan x="0" y="11.64">牛</tspan><tspan x="0" y="23.28">节</tspan></text>
+        <text class="cls-7" transform="translate(208.08 530.58)"><tspan x="0" y="0">洗</tspan><tspan x="0" y="11.64">牛</tspan><tspan x="0" y="23.28">脚</tspan><tspan x="0" y="34.92">会</tspan></text>
+        <text class="cls-7" transform="translate(243.94 534.74)"><tspan x="0" y="0">其</tspan><tspan x="0" y="11.64">它</tspan><tspan x="0" y="23.28">牛</tspan><tspan x="0" y="34.92">王</tspan><tspan x="0" y="46.56">节</tspan></text>
+        <g>
+          <text class="cls-7" transform="translate(258.46 514.96) rotate(90)"><tspan x="0" y="0">（</tspan></text>
+          <text class="cls-8" transform="translate(256.41 539.1)"><tspan class="cls-26" x="0" y="0">习</tspan><tspan class="cls-26" x="0" y="11.64">俗</tspan><tspan class="cls-26" x="0" y="23.28">类</tspan><tspan class="cls-34" x="0" y="34.92">似</tspan></text>
+          <text class="cls-5" transform="translate(258.46 573.16) rotate(90)"><tspan x="0" y="0">）</tspan></text>
+        </g>
+        <text class="cls-3" transform="translate(114.6 49.55)"><tspan x="0" y="0">祈</tspan><tspan x="0" y="16.63">福</tspan></text>
+        <text class="cls-3" transform="translate(198.15 49.58)"><tspan x="0" y="0">耕</tspan><tspan x="0" y="16.63">作</tspan></text>
+        <rect class="cls-32" x="149.19" y="72.14" width="125.26" height="3.82"/>
+        <rect class="cls-31" x="62.38" y="72.15" width="34.14" height="3.82"/>
+        <rect class="cls-31" x="98.12" y="72.15" width="48.9" height="3.82"/>
+        <rect class="cls-22" x="32.68" y="72.15" width="27.63" height="3.82"/>
+        <rect class="cls-22" x="9.5" y="72.15" width="21.28" height="3.82"/>
+      </g>
+    </g>
+    <g class="cls-30">
+      <g class="cls-29">
+        <path class="cls-28" d="M211.44,756.89c-18.79-10.81-40.16-16.54-61.84-16.57v123.68s61.84-107.11,61.84-107.11Z"/>
+      </g>
+      <g class="cls-27">
+        <path class="cls-28" d="M83.34,756.89c18.79-10.81,40.16-16.54,61.84-16.57v123.68s-61.84-107.11-61.84-107.11Z"/>
+      </g>
+      <g class="cls-27">
+        <path class="cls-28" d="M211.44,985.77c-18.79,10.81-40.16,16.54-61.84,16.57v-123.68s61.84,107.11,61.84,107.11Z"/>
+      </g>
+      <g class="cls-27">
+        <path class="cls-28" d="M34.51,938.87c10.87,18.75,26.51,34.4,45.27,45.27l61.84-107.11-107.11,61.84Z"/>
+      </g>
+      <g class="cls-33">
+        <path class="cls-28" d="M16.63,869.71c.04-21.68,5.76-43.05,16.57-61.84l107.11,61.84H16.63Z"/>
+      </g>
+      <g>
+        <g>
+          <line class="cls-17" x1="81.77" y1="758.05" x2="84.77" y2="763.25"/>
+          <line class="cls-13" x1="85.28" y1="764.14" x2="86.56" y2="766.36"/>
+          <line class="cls-20" x1="86.82" y1="766.8" x2="209.58" y2="979.43"/>
+          <line class="cls-17" x1="209.84" y1="979.87" x2="212.84" y2="985.07"/>
+        </g>
+        <g>
+          <line class="cls-17" x1="260.81" y1="806.03" x2="255.61" y2="809.03"/>
+          <line class="cls-13" x1="254.73" y1="809.54" x2="252.51" y2="810.82"/>
+          <line class="cls-20" x1="252.06" y1="811.08" x2="39.44" y2="933.84"/>
+          <line class="cls-17" x1="38.99" y1="934.09" x2="33.8" y2="937.09"/>
+        </g>
+        <g>
+          <line class="cls-17" x1="33.8" y1="806.03" x2="38.99" y2="809.03"/>
+          <line class="cls-13" x1="39.88" y1="809.54" x2="42.1" y2="810.82"/>
+          <line class="cls-20" x1="42.54" y1="811.08" x2="255.17" y2="933.84"/>
+          <line class="cls-17" x1="255.61" y1="934.09" x2="260.81" y2="937.09"/>
+        </g>
+        <g>
+          <line class="cls-17" x1="212.84" y1="758.05" x2="209.84" y2="763.25"/>
+          <line class="cls-13" x1="209.32" y1="764.14" x2="208.04" y2="766.36"/>
+          <line class="cls-20" x1="207.79" y1="766.8" x2="85.03" y2="979.43"/>
+          <line class="cls-17" x1="84.77" y1="979.87" x2="81.77" y2="985.07"/>
+        </g>
+        <line class="cls-14" x1="147.3" y1="740.49" x2="147.3" y2="1002.63"/>
+        <line class="cls-14" x1="278.37" y1="871.56" x2="16.24" y2="871.56"/>
+        <path class="cls-16" d="M151.3,736.07c71.18,2.89,128.33,60.21,130.96,131.45"/>
+        <path class="cls-11" d="M151.3,1007.35c71.18-2.89,128.33-60.21,130.96-131.45"/>
+        <path class="cls-19" d="M143.31,736.07c-71.18,2.89-128.33,60.21-130.96,131.45"/>
+        <path class="cls-10" d="M143.31,1007.35c-71.18-2.89-128.33-60.21-130.96-131.45"/>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(150.45 732.18)"><tspan x="0" y="0">春</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(150.45 1019.81)"><tspan x="0" y="0">夏</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(130.98 732.18)"><tspan x="0" y="0">冬</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-4" transform="translate(130.98 1019.81)"><tspan x="0" y="0">秋</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-2" transform="translate(205.56 736.03)"><tspan x="0" y="0">一</tspan><tspan x="0" y="9.73">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-2" transform="translate(259.55 782.06)"><tspan x="0" y="0">二</tspan><tspan x="0" y="9.73">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(284.09 857.85)"><tspan x="0" y="0">三</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(205.32 1006.54)"><tspan x="0" y="0">六</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(259.31 960.52)"><tspan x="0" y="0">五</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(284.09 886.17)"><tspan x="0" y="0">四</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-6" transform="translate(75.83 725.5)"><tspan x="0" y="0">十</tspan><tspan x="0" y="10.29">二</tspan><tspan x="0" y="20.58">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-6" transform="translate(24.09 772.79)"><tspan x="0" y="0">十</tspan><tspan x="0" y="10.29">一</tspan><tspan x="0" y="20.58">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(0 857.85)"><tspan x="0" y="0">十</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(78.8 1006.54)"><tspan x="0" y="0">七</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(24.66 960.52)"><tspan x="0" y="0">八</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+        <g class="cls-9">
+          <text class="cls-1" transform="translate(.15 886.17)"><tspan x="0" y="0">九</tspan><tspan x="0" y="11.43">月</tspan></text>
+        </g>
+      </g>
+      <g class="cls-23">
+        <path class="cls-28" d="M16.63,873.24c.04,21.68,5.76,43.05,16.57,61.84l107.11-61.84H16.63Z"/>
+      </g>
+      <path class="cls-24" d="M153.3,742.66c.75,1.38,1.3,2.96,1.65,4.66.54-1.65,1.26-3.15,2.16-4.44-.27,4.76-.02,1.52-.21,4.26-.33,4.74-.67,4.43-2.33,6.89-1.37-2.63-1.75-2.36-1.54-7.11.12-2.74,0,.51.27-4.25Z"/>
+      <path class="cls-24" d="M161.38,743.54c.55,1.47.88,3.11.98,4.84.76-1.56,1.68-2.95,2.76-4.1-.93,4.68-.23,1.51-.8,4.19-.98,4.65-1.28,4.29-3.26,6.5-.99-2.8-1.4-2.58-.54-7.25.5-2.69-.07.5.86-4.17Z"/>
+      <path class="cls-24" d="M168.82,745.18c.5,1.49.77,3.14.81,4.87.81-1.53,1.78-2.89,2.9-4-1.09,4.64-.28,1.5-.94,4.16-1.14,4.61-1.43,4.24-3.49,6.38-.89-2.83-1.31-2.63-.28-7.27.59-2.67-.09.5,1-4.14Z"/>
+      <path class="cls-24" d="M175.25,746.43c.48,1.5.73,3.15.75,4.88.83-1.52,1.82-2.87,2.95-3.96-1.15,4.63-.3,1.49-1,4.14-1.2,4.6-1.48,4.22-3.57,6.34-.86-2.84-1.28-2.64-.19-7.27.63-2.67-.09.5,1.06-4.13Z"/>
+      <path class="cls-24" d="M19.18,866.19c1.34-.83,2.88-1.46,4.56-1.91-1.68-.44-3.22-1.08-4.56-1.91,4.77,0,1.52-.07,4.26-.03,4.75.06,4.46.42,7.01,1.94-2.55,1.52-2.26,1.88-7.01,1.94-2.74.03.51-.03-4.26-.03Z"/>
+      <path class="cls-24" d="M19.6,859.11c1.44-.64,3.05-1.05,4.78-1.25-1.6-.67-3.04-1.51-4.25-2.52,4.72.66,1.52.15,4.22.56,4.7.72,4.35,1.03,6.67,2.89-2.74,1.15-2.5,1.54-7.21.94-2.72-.35.51.04-4.22-.62Z"/>
+      <path class="cls-24" d="M20.83,852.63c1.46-.58,3.09-.94,4.82-1.09-1.57-.73-2.98-1.62-4.16-2.67,4.7.83,1.51.2,4.2.71,4.67.88,4.32,1.19,6.57,3.12-2.78,1.05-2.55,1.46-7.24.69-2.7-.44.51.06-4.19-.77Z"/>
+      <path class="cls-24" d="M22.71,845.7c1.5-.46,3.16-.67,4.89-.66-1.5-.86-2.83-1.87-3.91-3.02,4.61,1.23,1.49.33,4.12,1.07,4.57,1.29,4.2,1.56,6.27,3.69-2.86.81-2.67,1.23-7.27.06-2.65-.68.5.1-4.11-1.13Z"/>
+      <path class="cls-24" d="M182.32,748.11c.41,1.52.58,3.18.52,4.91.9-1.48,1.95-2.78,3.13-3.82-1.36,4.57-.37,1.48-1.19,4.09-1.42,4.54-1.68,4.15-3.86,6.16-.72-2.88-1.15-2.7.15-7.27.75-2.63-.12.5,1.25-4.07Z"/>
+      <path class="cls-24" d="M189.69,750.24c.29,1.55.33,3.21.13,4.94,1.02-1.4,2.17-2.61,3.42-3.56-1.72,4.45-.49,1.44-1.51,3.99-1.77,4.41-2,4-4.34,5.84-.49-2.93-.93-2.78.73-7.24.96-2.57-.15.48,1.57-3.96Z"/>
+      <path class="cls-24" d="M90.67,755.58c-.19,1.56-.11,3.23.2,4.93-1.11-1.33-2.34-2.46-3.65-3.32,2.02,4.32.58,1.41,1.77,3.88,2.06,4.28,2.26,3.86,4.72,5.53.3-2.96.75-2.84-1.21-7.17-1.13-2.5.19.47-1.83-3.85Z"/>
+      <path class="cls-24" d="M32.46,927.73c1.57.09,3.23-.08,4.91-.49-1.26,1.19-2.32,2.48-3.1,3.84,4.2-2.27,1.37-.67,3.76-2,4.15-2.31,3.72-2.49,5.25-5.04-2.97-.12-2.88-.58-7.09,1.63-2.43,1.27.46-.21-3.73,2.05Z"/>
+      <path class="cls-24" d="M30.37,922.46c1.57.12,3.23-.04,4.92-.42-1.28,1.17-2.35,2.45-3.15,3.8,4.23-2.21,1.38-.65,3.79-1.95,4.18-2.25,3.76-2.43,5.32-4.96-2.97-.16-2.87-.62-7.11,1.53-2.44,1.24.46-.21-3.76,2Z"/>
+      <path class="cls-24" d="M75.13,977.07c1.44-.63,2.84-1.55,4.15-2.68-.58,1.63-.93,3.26-1.01,4.83,2.7-3.93.92-1.22,2.44-3.5,2.64-3.95,2.18-3.91,2.37-6.88-2.7,1.25-2.83.8-5.56,4.68-1.58,2.24.31-.4-2.39,3.53Z"/>
+      <path class="cls-24" d="M204.88,986.58c0-1.57-.26-3.22-.75-4.88,1.25,1.2,2.6,2.18,4,2.89-2.49-4.07-.74-1.33-2.2-3.65-2.53-4.02-2.68-3.58-5.31-4.97.04,2.97-.42,2.91,2.01,6.99,1.4,2.35-.24-.45,2.25,3.62Z"/>
+    </g>
+  </g>
+</svg>
