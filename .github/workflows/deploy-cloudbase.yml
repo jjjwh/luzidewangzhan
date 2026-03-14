@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
@@ -16,7 +18,14 @@ jobs:
       - name: 安装 CloudBase CLI
         run: npm install -g @cloudbase/cli
 
+      - name: 准备部署目录（避免路径权限问题）
+        run: |
+          mkdir -p deploy_out
+          cp -r index.html _app assets README.md deploy_out/ 2>/dev/null || true
+          chmod -R u+rX deploy_out
+          ls -la deploy_out
+
       - name: 登录并部署（纯静态站点，直接部署根目录）
         run: |
           tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
-          tcb hosting deploy . /home -e ${{ secrets.TCB_ENV_ID }}
+          tcb hosting deploy deploy_out /home -e ${{ secrets.TCB_ENV_ID }} --verbose
