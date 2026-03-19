@@ -59,7 +59,7 @@ h3.svelte-1ifywjh {
     text-transform: uppercase;
     letter-spacing: .1em;
     font-weight: 500;
-    background-color: var(--color-background-transparent);
+    background-color: transparent;
     border-radius: 2px;
     padding: 1rem;
     z-index: 2;
@@ -74,7 +74,7 @@ h3.svelte-1ifywjh {
     opacity: 1;
     transition: opacity .4s;
     pointer-events: all;
-    background-color: var(--color-background-transparent); /* 半透明背景 */
+    background-color: transparent; /* 避免遮挡圆圈高亮颜色 */
     border-radius: 2px;
     position: relative;
     z-index: 10;
@@ -111,6 +111,8 @@ h3.svelte-1ifywjh {
 .step-text.svelte-1ifywjh {
     font-size: 1.3rem;
     padding: 1rem 0;
+    transition: opacity .3s ease;
+    will-change: opacity;
 }
 
 /* 桌面端布局 (>= 50em) */
@@ -223,7 +225,7 @@ h3.svelte-1ifywjh {
     /* 中间：滚动文字区 */
     .scroll-area.svelte-1ifywjh {
         grid-column: 2;
-        margin-top: 50vh;
+        margin-top: 40vh; /* 调小以提前触发居中判断 */
         z-index: 6;
         pointer-events: none; /* 让鼠标事件穿透文字区域，以便操作图片（如果有交互） */
     }
@@ -238,13 +240,13 @@ h3.svelte-1ifywjh {
         /* 确保标题在最上方 */
         order: 1;
         margin-bottom: 2rem; /* 标题和图片之间的间距 */
-        background-color: var(--color-background-transparent); /* 恢复原来的背景色 */
+        background-color: transparent;
         width: 100%;
     }
 
     .step.svelte-1ifywjh {
         margin: 50rem auto 2rem;
-        background-color: var(--color-background-transparent); /* 恢复原来的背景色 */
+        background-color: transparent;
     }
 }
 
@@ -278,4 +280,92 @@ h3.svelte-1ifywjh {
 #gods-iconography-tezca3, #gods-iconography-Tezcatlipoca3 {
     --left-image: url(../../assets/img/tu6zuo.svg);
     --right-image: url(../../assets/img/tu6you.svg);
+}
+
+/* --- 每个界面的高亮圆圈颜色 --- */
+#gods-iconography-tlalte, #gods-iconography-Tlaltecuhtli {
+    /* Tu1zhong：R197 G109 B100 */
+    --color-highlight: rgb(197, 109, 100);
+}
+
+#gods-iconography-tezca, #gods-iconography-Tezcatlipoca {
+    /* Tu2zhong：R0 G82 B61 */
+    --color-highlight: rgb(0, 82, 61);
+}
+
+#gods-iconography-tlalte2, #gods-iconography-Tlaltecuhtli2 {
+    /* Tu3zhong：R230 G162 B117 */
+    --color-highlight: rgb(230, 162, 117);
+}
+
+#gods-iconography-tezca2, #gods-iconography-Tezcatlipoca2 {
+    /* Tu4zhong：R107 G171 B105 */
+    --color-highlight: rgb(107, 171, 105);
+}
+
+#gods-iconography-tlalte3, #gods-iconography-Tlaltecuhtli3 {
+    /* Tu5zhong：R236 G212 B110 */
+    --color-highlight: rgb(236, 212, 110);
+}
+
+#gods-iconography-tezca3, #gods-iconography-Tezcatlipoca3 {
+    /* Tu6zhong：R107 G171 B105 */
+    --color-highlight: rgb(107, 171, 105);
+}
+
+/* 统一把六个 tu*zhong 底图整体往上挪一点，不影响圆圈等叠加元素 */
+#gods-iconography-tlalte figure.svelte-1ifywjh svg image,
+#gods-iconography-Tlaltecuhtli figure.svelte-1ifywjh svg image,
+#gods-iconography-tezca figure.svelte-1ifywjh svg image,
+#gods-iconography-Tezcatlipoca figure.svelte-1ifywjh svg image,
+#gods-iconography-tlalte2 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tlaltecuhtli2 figure.svelte-1ifywjh svg image,
+#gods-iconography-tezca2 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tezcatlipoca2 figure.svelte-1ifywjh svg image,
+#gods-iconography-tlalte3 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tlaltecuhtli3 figure.svelte-1ifywjh svg image,
+#gods-iconography-tezca3 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tezcatlipoca3 figure.svelte-1ifywjh svg image {
+    transform: translateY(1vh);
+    transform-origin: center center;
+}
+
+/* 单独放大“龙抬头”（tu3zhong.svg）的底图，不放大圆圈等 SVG 叠加元素 */
+#gods-iconography-tlalte2 figure.svelte-1ifywjh svg,
+#gods-iconography-Tlaltecuhtli2 figure.svelte-1ifywjh svg {
+    transform: none; /* 不整体缩放 SVG，避免圆圈变形 */
+}
+
+
+/* tu1zhong（tlalte）单独调 */
+#gods-iconography-tlalte figure.svelte-1ifywjh svg image,
+#gods-iconography-Tlaltecuhtli figure.svelte-1ifywjh svg image {
+  transform: translateY(-100vh);
+}
+/* tu2zhong（tezca）单独调 */
+#gods-iconography-tezca figure.svelte-1ifywjh svg image,
+#gods-iconography-Tezcatlipoca figure.svelte-1ifywjh svg image {
+  transform: translateY(-100vh);
+}
+/* tu3zhong（tlalte2）单独调（这张你还有 scale，就要一起写） */
+#gods-iconography-tlalte2 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tlaltecuhtli2 figure.svelte-1ifywjh svg image {
+  transform:  translateX(-100px) translateY(-80vh) scale(1.5);
+  transform-origin: center center;
+}
+/* tu4zhong（tezca2）单独调 */
+#gods-iconography-tezca2 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tezcatlipoca2 figure.svelte-1ifywjh svg image {
+  transform: translateY(-65vh) scale(0.9);
+  transform-origin: center center;
+}
+/* tu5zhong（tlalte3）单独调 */
+#gods-iconography-tlalte3 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tlaltecuhtli3 figure.svelte-1ifywjh svg image {
+  transform: translateY(-100vh);
+}
+/* tu6zhong（tezca3）单独调 */
+#gods-iconography-tezca3 figure.svelte-1ifywjh svg image,
+#gods-iconography-Tezcatlipoca3 figure.svelte-1ifywjh svg image {
+  transform: translateY(-100vh);
 }

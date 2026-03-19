@@ -626,11 +626,48 @@ function xe(r, e, i) {
   const p = n => {
     i(9, _ = n.index), i(8, k = y[n.index])
   };
+        // tu模块文字消失的地方调整
   return ue(() => {
-    ge().setup({
+    const sc = ge().setup({
       step: `div .step-${s}`,
-      offset: .95
-    }).onStepEnter(p)
+      offset: .73,
+      progress: true
+    });
+    sc.onStepEnter(p);
+    sc.onStepProgress(function(evt){
+      try {
+        if(!evt || !evt.element) return;
+        const texts = evt.element.querySelectorAll && evt.element.querySelectorAll('.step-text, .step-title');
+        if(!texts || !texts.length) return;
+        for(let i=0;i<texts.length;i++){
+          // 隐藏/显示文字，阈值 0.5（可微调为 0.45/0.55）
+          if(typeof evt.progress === 'number' && evt.progress > 0.5) {
+            // 立即隐藏：临时禁用过渡以实现“突然消失”效果
+            texts[i].style.transition = 'none';
+            texts[i].style.opacity = '0';
+          } else {
+            // 恢复平滑过渡
+            texts[i].style.transition = 'opacity .3s ease';
+            texts[i].style.opacity = '1';
+          }
+        }
+        try {
+          // 同时将步骤卡片的背景设为透明（否则文字消失但背景仍可见）
+          if(evt.element && evt.element.style) {
+            if(typeof evt.progress === 'number' && evt.progress > 0.5) {
+              evt.element.style.backgroundColor = 'transparent';
+            } else {
+              // 清除内联样式以恢复到 CSS 定义的背景色
+              evt.element.style.backgroundColor = '';
+            }
+          }
+        } catch (e) {
+          // 忽略背景设置错误
+        }
+      } catch (e) {
+        // 忽略任何意外错误，避免影响主逻辑
+      }
+    });
   }), r.$$set = n => {
     "title" in n && i(0, t = n.title), "name" in n && i(1, s = n.name), "source" in n && i(2, h = n.source), "sourceUrl" in n && i(3, c = n.sourceUrl), "imgPath" in n && i(4, a = n.imgPath), "selected" in n && i(9, _ = n.selected), "steps" in n && i(5, y = n.steps), "positions" in n && i(6, x = n.positions), "imageRange" in n && i(7, R = n.imageRange)
   }, [t, s, h, c, a, y, x, R, k, _, l]
@@ -655,6 +692,8 @@ class Re extends J {
     return this.$$.ctx[10]
   }
 }
+
+ // 改变图片圆圈位置
 const He = {
     tu2: {
       init: [{
@@ -665,64 +704,64 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .5,
-        rx: .49,
-        ry: .49
+        cy: .35,
+        rx: .52,
+        ry: .41
       }],
       colors: [{
-        cx: .8,
-        cy: .48,
-        rx: .28,
-        ry: .28
+        cx: .18,
+        cy: .55,
+        rx: .19,
+        ry: .19
       }],
       face: [{
         cx: .32,
-        cy: .28,
+        cy: .15,
         rx: .18,
         ry: .18
       }, {
         cx: .63,
-        cy: .3,
+        cy: .13,
         rx: .1,
         ry: .15
       }],
       spear: [{
         cx: .81,
-        cy: .75,
-        rx: .2,
-        ry: .14
+        cy: .55,
+        rx: .22,
+        ry: .17
       }]
     },
     tu4: {
       init: [{
-        cx: .5,
-        cy: .5,
+        cx: .3,
+        cy: .3,
         rx: 0,
         ry: 0
       }],
       intro: [{
         cx: .5,
-        cy: .5,
-        rx: .49,
-        ry: .49
+        cy: .39,
+        rx: .46,
+        ry: .46
       }],
       colors: [{
-        cx: .5,
-        cy: .32,
-        rx: .34,
-        ry: .22
+        cx: .505,
+        cy: .39,
+        rx: .39,
+        ry: .39
       }],
       face: [{
         cx: .505,
-        cy: .5,
-        rx: .25,
-        ry: .25
+        cy: .39,
+        rx: .22,
+        ry: .22
       }],
       spear: [{
-        cx: .5,
-        cy: .72,
-        rx: .36,
-        ry: .2
+        cx: .505,
+        cy: .385,
+        rx: .17,
+        ry: .17
       }]
     },
     tu6: {
@@ -734,64 +773,64 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .5,
+        cy: .33,
         rx: .49,
-        ry: .49
+        ry: .4
       }],
       colors: [{
         cx: .57,
-        cy: .36,
+        cy: .18,
         rx: .23,
         ry: .24
       }],
       face: [{
         cx: .253,
-        cy: .4,
+        cy: .24,
         rx: .1,
         ry: .16
       }],
       spear: [{
-        cx: .84,
-        cy: .45,
-        rx: .18,
-        ry: .33
+        cx: .86,
+        cy: .29,
+        rx: .16,
+        ry: .3
       }]
     }
   },
   Ie = {
     tu1: {
       init: [{
-        cx: .5,
-        cy: .5,
+        cx: .4,
+        cy: .4,
         rx: 0,
-        ry: 0
+        ry: -0.4
       }],
       intro: [{
         cx: .5,
-        cy: .5,
-        rx: .49,
-        ry: .49
+        cy: .37,
+        rx: .48,
+        ry: .43
       }],
       cycle_timing: [{
-        cx: .18,
-        cy: .33,
-        rx: .14,
-        ry: .12
+        cx: .20,
+        cy: .6,
+        rx: .18,
+        ry: .11
       }, {
-        cx: .75,
-        cy: .3,
-        rx: .14,
-        ry: .12
+        cx: .77,
+        cy: .6,
+        rx: .18,
+        ry: .11
       }],
       hair: [{
         cx: .5,
-        cy: .65,
+        cy: .5,
         rx: .22,
         ry: .15
       }],
       mouth: [{
         cx: .28,
-        cy: .33,
+        cy: .15,
         rx: .13,
         ry: .18
       }]
@@ -804,26 +843,26 @@ const He = {
         ry: 0
       }],
       intro: [{
-        cx: .5,
-        cy: .5,
-        rx: .49,
-        ry: .49
+        cx: .55,
+        cy: .37,
+        rx: .5,
+        ry: .43
       }],
       claws: [{
-        cx: .63,
-        cy: .32,
-        rx: .3,
+        cx: .87,
+        cy: .25,
+        rx: .19,
         ry: .16
       }],
       hair: [{
-        cx: .62,
-        cy: .55,
-        rx: .23,
-        ry: .16
+        cx: .22,
+        cy: .47,
+        rx: .14,
+        ry: .17
       }],
       mouth: [{
-        cx: .35,
-        cy: .36,
+        cx: .31,
+        cy: .22,
         rx: .17,
         ry: .17
       }]
@@ -837,25 +876,25 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .5,
-        rx: .49,
-        ry: .49
+        cy: .39,
+        rx: .46,
+        ry: .46
       }],
       claws: [{
         cx: .46,
-        cy: .31,
+        cy: .15,
         rx: .27,
         ry: .19
       }],
       hair: [{
         cx: .2,
-        cy: .66,
-        rx: .27,
+        cy: .48,
+        rx: .24,
         ry: .2
       }],
       mouth: [{
-        cx: .85,
-        cy: .465,
+        cx: .83,
+        cy: .3,
         rx: .18,
         ry: .1
       }]

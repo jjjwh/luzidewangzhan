@@ -12,9 +12,9 @@
     --category-human-light: #F9F6F8;
     --category-secondary-light: #FFEDED;
     
-    --color-background: #ffe198;
-    --color-background-transparent: rgba(255, 225, 152, .8);
-    --color-background-2: #fde7b2;
+    --color-background: rgb(244,241,239);
+    --color-background-transparent: rgba(244, 241, 239, .8);
+    --color-background-2: rgb(244,241,239);
     
     --color-highlight: #d90b0b;
     --color-highlight-lighter: #fbf2f2;
