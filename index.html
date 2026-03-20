@@ -185,7 +185,7 @@
     padding: 1rem 0;
     position: relative;
     /* 麦田滚动总时长：越大每层越“慢”且更均匀 */
-    min-height: 2000vh;
+    min-height: 1000vh;
   }
 
   .wheat-layers-wrap {
@@ -255,7 +255,7 @@
   /* 单独微调 layer04 ~ layer06 的垂直位置（在统一缩放的基础上再偏移） */
   .wheat-layers-wrap.scale-all .wheat-layer.layer-4 {
     transform-origin: center center;
-    transform: translateY(7.5vh) scale(1.33); /* 比默认略往上 */
+    transform: translateY(7.3vh) scale(1.33); /* 比默认略往上 */
   }
 
   /* layer04 现在由 `layer-text` 覆盖层负责显示与交互；
@@ -266,23 +266,42 @@
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-5 {
     transform-origin: center center;
-    transform: translateY(3vh) scale(1.33); /* 再往上一些，你可按效果继续调 */
+    transform: translateY(5.3vh) scale(1.33); /* 再往上一些，你可按效果继续调 */
   }
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-6 {
     transform-origin: center center;
-    transform: translateY(2.9vh) scale(1.33); /* 保持和默认一致，方便以后再改 */
+    transform: translateY(5vh) scale(1.33); /* 保持和默认一致，方便以后再改 */
   }
 
   .wheat-layer.layer-text g[id^="pary-"] {
     cursor: pointer;
   }
 
+  /* 图标所有填充路径默认透明，只保留描边轮廓 */
+  .wheat-layer.layer-text g[id^="pary-"] path,
+  .wheat-layer.layer-text g[id^="pary-"] polygon,
+  .wheat-layer.layer-text g[id^="pary-"] ellipse,
+  .wheat-layer.layer-text g[id^="pary-"] circle,
+  .wheat-layer.layer-text g[id^="pary-"] rect {
+    fill: transparent !important;
+    stroke: #c5a673;
+    stroke-width: 0.5px;
+  }
+
+  /* 连接线（line 元素）保持原样可见 */
+  .wheat-layer.layer-text g[id^="pary-"] line {
+    stroke: #c5a673;
+    stroke-width: 0.5px;
+  }
+
+  /* 文字元素始终隐藏 */
   .wheat-layer.layer-text g[id^="pary-"] .cls-39 {
+    opacity: 0 !important;
     transition: opacity 0.2s ease;
   }
 
-  /* 悬停时隐藏组内小字，改由旁边大字弹出框显示 */
+  /* 悬停时隐藏（仍保留，确保旧样式不会覆盖新规则） */
   .wheat-layer.layer-text g[id^="pary-"]:hover .cls-39 {
     opacity: 0 !important;
   }
@@ -305,9 +324,9 @@
     transition: opacity 0.2s ease, visibility 0.2s ease;
     /* 用阴影描一圈（比背景稍深的颜色），字心保持黑色 */
     text-shadow:
-      -1px -1px 0 #F0DA90, 1px -1px 0 #F0DA90, -1px 1px 0 #F0DA90, 1px 1px 0 #F0DA90,
-      0 -1px 0 #F0DA90, 0 1px 0 #F0DA90, -1px 0 0 #F0DA90, 1px 0 0 #F0DA90,
-      -2px -2px 0 #F0DA90, 2px -2px 0 #F0DA90, -2px 2px 0 #F0DA90, 2px 2px 0 #F0DA90;
+      -1px -1px 0 rgb(244,241,239), 1px -1px 0 rgb(244,241,239), -1px 1px 0 rgb(244,241,239), 1px 1px 0 rgb(244,241,239),
+      0 -1px 0 rgb(244,241,239), 0 1px 0 rgb(244,241,239), -1px 0 0 rgb(244,241,239), 1px 0 0 rgb(244,241,239),
+      -2px -2px 0 rgb(244,241,239), 2px -2px 0 rgb(244,241,239), -2px 2px 0 rgb(244,241,239), 2px 2px 0 rgb(244,241,239);
   }
 
   #wheat-big-label.visible {
@@ -554,7 +573,7 @@
       section.querySelectorAll('.wheat-layer[class*="layer-"]:not(.layer-text)')
     );
     if (!layers.length) return false;
-
+      // layer02-layer06的整体速度
     const n = layers.length;
     const structuralSpan = 1;
 
@@ -636,8 +655,9 @@
         const end = ((index + 1) / n) * structuralSpan;
         const t = clamp((progress - start) / (end - start), 0, 1);
         if (index >= 4) {
-          // layer05 / layer06
-          el.style.opacity = t > 0 ? 1 : 0;
+          // layer05 / layer06：在各自区间的前 1/4（t=0.25）就达到完全不透明
+          var appearQuickPortion = 0.25; // 0~1，越小越“早变满”
+          el.style.opacity = clamp(t / appearQuickPortion, 0, 1);
         } else {
           // layer02 / layer03 / layer3.5 / layer04
           el.style.opacity = t;
@@ -665,9 +685,10 @@
         // layer3.5
         'layer35-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
         // layer05（会很快被 layer06 盖住，通常需要更早到位）
-        'layer5-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
+        // 让 fade-in 更快，避免“整张层也像渐变出现”的视觉错觉
+        'layer5-': { stretch: 0.7, easePower: 1.2, fadeAfter: 0.08 },
         // layer06
-        'layer6-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 }
+        'layer6-': { stretch: 1, easePower: 1.2, fadeAfter: 0.08 }
       };
 
       function applyDuiyinForLayer(prefix, layerIndex) {
@@ -695,20 +716,25 @@
         var translate = ' translate(' + dx + ' ' + dy + ')';
         g.setAttribute('transform', (base || '').trim() + translate);
 
-        // 到位后淡出：
-        // - 正常情况：在 duiyinEnd 之后再滚动 fadeAfter 的“progress”长度淡出
-        // - 若 duiyinEnd 已经贴到 1（结尾），则在最后 fadeAfter 的 progress 区间淡出
-        var opacity = 1;
+        // 透明出来 + 最后透明消失：
+        // - fade-in：从该 layer 的 start 开始到 duiyinEnd 逐步从 0 → 1
+        // - fade-out：在 duiyinEnd 之后额外滚动 fadeAfter 的长度后从 1 → 0
+        var fadeInDen = Math.max(duiyinEnd - start, 1e-6);
+        var fadeInT = clamp((progress - start) / fadeInDen, 0, 1);
+        var opacity = fadeInT;
+
         if (fadeAfter <= 0) {
-          opacity = (progress >= duiyinEnd) ? 0 : 1;
+          // 立即淡出（在到位点之后）
+          opacity = (progress >= duiyinEnd) ? 0 : opacity;
         } else {
+          // 正常淡出：在 duiyinEnd 之后再滚动 fadeAfter 的“progress”长度淡出
           var fadeStart = duiyinEnd;
           if (fadeStart >= 1 - 1e-6) {
             fadeStart = Math.max(start, 1 - fadeAfter);
           }
           if (progress >= fadeStart) {
             var fadeT = (progress - fadeStart) / Math.max(fadeAfter, 1e-6);
-            opacity = clamp(1 - fadeT, 0, 1);
+            opacity = opacity * clamp(1 - fadeT, 0, 1);
           }
         }
         g.style.opacity = String(opacity);
