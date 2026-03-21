@@ -186,6 +186,8 @@
     position: relative;
     /* 麦田滚动总时长：越大每层越“慢”且更均匀 */
     min-height: 1000vh;
+    /* 确保缩放后的圆圈等元素不被裁剪（解决部署环境与本地渲染差异） */
+    overflow: visible;
   }
 
   .wheat-layers-wrap {
@@ -222,6 +224,11 @@
     height: auto;
     display: block;
     margin: 0;
+  }
+
+  /* 确保 layer06 中央圆圈不被 SVG 默认 overflow 裁剪，解决部署环境渲染差异 */
+  #wheat-layers .wheat-layer.layer-6 svg {
+    overflow: visible;
   }
 
   /* 让前景图层的鼠标事件穿透到文字层（layer04 的交互覆盖层），避免挡住文字交互 */
@@ -271,19 +278,38 @@
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-6 {
     transform-origin: center center;
-    transform: translateY(5vh) scale(1.33); /* 保持和默认一致，方便以后再改 */
+    transform: translateY(4.1vh) scale(1.33); /* 保持和默认一致，方便以后再改 */
   }
 
   .wheat-layer.layer-text g[id^="pary-"] {
     cursor: pointer;
   }
 
+  /*
+   * layer04 交互层：内联自 layer04.svg（fetch 后插入 .layer-text）。
+   * 图标「隐藏」= 填充全透明，只留轮廓线，热区仍可 hover；
+   * 文案在 SVG 内多为 .cls-39，始终不可见，由 #wheat-big-label 显示对应 wheatLabels。
+   */
+  .wheat-layer.layer-text g[id^="pary-"] path,
+  .wheat-layer.layer-text g[id^="pary-"] polygon,
+  .wheat-layer.layer-text g[id^="pary-"] ellipse,
+  .wheat-layer.layer-text g[id^="pary-"] circle,
+  .wheat-layer.layer-text g[id^="pary-"] rect {
+    fill: transparent !important;
+    stroke: #c5a673;
+    stroke-width: 0.5px;
+  }
+
+  .wheat-layer.layer-text g[id^="pary-"] line {
+    stroke: #c5a673;
+    stroke-width: 0.5px;
+  }
+
   .wheat-layer.layer-text g[id^="pary-"] .cls-39 {
-    opacity: 0 !important; /* 需要全部消失：不再依赖 hover */
+    opacity: 0 !important; /* SVG 内文字隐藏，仅用外部浮动标签 */
     transition: opacity 0.2s ease;
   }
 
-  /* 悬停时隐藏（仍保留，确保旧样式不会覆盖新规则） */
   .wheat-layer.layer-text g[id^="pary-"]:hover .cls-39 {
     opacity: 0 !important;
   }
@@ -304,11 +330,11 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease, visibility 0.2s ease;
-    /* 用阴影描一圈（比背景稍深的颜色），字心保持黑色 */
+    /* 文字光晕（与页面背景 rgb(244,241,239) 一致） */
     text-shadow:
-      -1px -1px 0 #F0DA90, 1px -1px 0 #F0DA90, -1px 1px 0 #F0DA90, 1px 1px 0 #F0DA90,
-      0 -1px 0 #F0DA90, 0 1px 0 #F0DA90, -1px 0 0 #F0DA90, 1px 0 0 #F0DA90,
-      -2px -2px 0 #F0DA90, 2px -2px 0 #F0DA90, -2px 2px 0 #F0DA90, 2px 2px 0 #F0DA90;
+      -1px -1px 0 rgb(244, 241, 239), 1px -1px 0 rgb(244, 241, 239), -1px 1px 0 rgb(244, 241, 239), 1px 1px 0 rgb(244, 241, 239),
+      0 -1px 0 rgb(244, 241, 239), 0 1px 0 rgb(244, 241, 239), -1px 0 0 rgb(244, 241, 239), 1px 0 0 rgb(244, 241, 239),
+      -2px -2px 0 rgb(244, 241, 239), 2px -2px 0 rgb(244, 241, 239), -2px 2px 0 rgb(244, 241, 239), 2px 2px 0 rgb(244, 241, 239);
   }
 
   #wheat-big-label.visible {
@@ -783,7 +809,8 @@
       updateOpacity();
     }
 
-    // 加载 layer04.svg 作为交互文字层（覆盖在 layer04 上）
+    // layer04 交互层：正常用 fetch 取 SVG 文本 → 内联到 DOM（非 <img>），才能用 CSS 控制 pary-*；
+    // 若 fetch 失败则退回 <img>，此时无法按分组描边/hover，需检查路径或本地服务。
     fetch('./assets/img/layer04.svg')
       .then(function (r) { return r.text(); })
       .then(function (html) {
