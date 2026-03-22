@@ -52,18 +52,9 @@ figure.svelte-1ifywjh {
     font-style: italic;
 }
 
-/* 章节标题 */
+/* 章节标题：隐藏整个标题框 */
 h3.svelte-1ifywjh {
-    font-size: 2rem;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    font-weight: 500;
-    background-color: transparent;
-    border-radius: 2px;
-    padding: 1rem;
-    z-index: 2;
-    text-align: center;
+    display: none;
 }
 
 /* --- 滚动步骤卡片 (Step Card) --- */
@@ -118,14 +109,17 @@ h3.svelte-1ifywjh {
 /* 桌面端布局 (>= 50em) */
     @media only screen and (min-width: 50em) {
     #scrolly.svelte-1ifywjh {
-        /* 调整列宽比例：微调左右比例以平衡间距 */
-        /* 左: 28% (加宽以增加左侧间距), 中: 50%, 右: 22% (收缩以减小右侧间距) */
-        /* 这样可以让中间模块在视觉上向右移动，平衡左右间距 */
-        grid-template-columns: 28fr 50fr 22fr;
-        max-width: 2500px;
+        /* 三列：左 tu*zuo | 中 tu*zhong | 右 tu*you
+           方案 B：略收窄右列、加宽中间，减少右列里「图左侧」空白（fr 仅比例，三数之和可任意，看相对值） */
+        grid-template-columns: 30fr 48fr 22fr;
+        max-width: 2200px;
         margin: 0 auto;
-        width: 96%;
+        width: 94%;
         column-gap: 0;
+        /* 关键：本块整列高度会被右侧长滚动撑得极高；figure 只有 100vh。
+           若用默认对齐，中间 figure 会落在这「超长行」的垂直中间，改 padding-top 也无效。
+           start：让所有格子内容贴行首（顶），与左右 sticky 一致。 */
+        align-items: start;
     }
 
     /* 左侧固定容器 */
@@ -175,17 +169,31 @@ h3.svelte-1ifywjh {
         z-index: 100;
     }
 
-    /* 中间：恢复 SVG 交互动画 */
-    figure.svelte-1ifywjh {
+    /* 中间：恢复 SVG 交互动画
+       与左右 tu*zuo / tu*you 列一致：同用上下内边距 + 内容从顶部排布。
+       注意：padding 不能为负值（写了也会被浏览器忽略，看起来像「怎么改都没用」）。
+       想再往上移请改小 --zhong-figure-pad-top，或用 figure > div 的 margin-top: 负值。
+       使用 #scrolly … 提高优先级，盖过 __layout 里 figure { height: auto }。 */
+    #scrolly.svelte-1ifywjh > figure.svelte-1ifywjh {
+        --zhong-figure-pad-top: 5vh;
+        --zhong-figure-pad-bottom: 5vh;
         grid-column: 2;
+        align-self: start;
+        justify-self: center;
         position: sticky;
         top: 0;
-        height: 100vh;
-        padding: 0;
+        box-sizing: border-box;
+        height: 100vh !important;
+        min-height: 100vh;
+        max-height: none;
+        padding-top: var(--zhong-figure-pad-top);
+        padding-bottom: var(--zhong-figure-pad-bottom);
+        padding-left: 0;
+        padding-right: 0;
         z-index: 5;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
-        justify-content: center; /* 垂直居中 */
+        justify-content: flex-start;
         align-items: center;
         background: none;
         margin: 0;
@@ -199,10 +207,12 @@ h3.svelte-1ifywjh {
 
     /* 中间：SVG 容器 */
     figure.svelte-1ifywjh > div {
+        --zhong-stage-width: min(100%, 48rem);
+        --zhong-stage-height: clamp(24rem, 62vh, 44rem);
         position: relative;
-        width: 100%;
-        /* 极大增加中间图片高度占比，使其填满中间区域 */
-        height: 85vh;
+        width: var(--zhong-stage-width);
+        height: var(--zhong-stage-height);
+        margin: 0 auto;
         background: none;
         order: 2;
     }
@@ -236,12 +246,7 @@ h3.svelte-1ifywjh {
     }
 
     h3.svelte-1ifywjh {
-        font-size: 3rem;
-        /* 确保标题在最上方 */
-        order: 1;
-        margin-bottom: 2rem; /* 标题和图片之间的间距 */
-        background-color: transparent;
-        width: 100%;
+        display: none;
     }
 
     .step.svelte-1ifywjh {
@@ -313,7 +318,21 @@ h3.svelte-1ifywjh {
     --color-highlight: rgb(107, 171, 105);
 }
 
-/* 统一把六个 tu*zhong 底图整体往上挪一点，不影响圆圈等叠加元素 */
+/* 单独放大“龙抬头”（tu3zhong.svg）的底图，不放大圆圈等 SVG 叠加元素 */
+#gods-iconography-tlalte2 figure.svelte-1ifywjh svg,
+#gods-iconography-Tlaltecuhtli2 figure.svelte-1ifywjh svg {
+    transform: none; /* 不整体缩放 SVG，避免圆圈变形 */
+}
+
+
+/* 统一六张 tuXzhong 底图的位置与缩放逻辑
+   注意：不要用 -90vh 这类超大位移。内层 SVG 是方形 viewBox，<image> 上移过大会
+   超出 viewBox 上边界，浏览器会按直线裁切，表现为「圆洞上面被切平」。改用百分比，
+   相对元素自身高度缩放，跨分辨率更稳。 */
+figure.svelte-1ifywjh {
+  --zhong-global-shift-y: -5%;
+}
+
 #gods-iconography-tlalte figure.svelte-1ifywjh svg image,
 #gods-iconography-Tlaltecuhtli figure.svelte-1ifywjh svg image,
 #gods-iconography-tezca figure.svelte-1ifywjh svg image,
@@ -326,46 +345,26 @@ h3.svelte-1ifywjh {
 #gods-iconography-Tlaltecuhtli3 figure.svelte-1ifywjh svg image,
 #gods-iconography-tezca3 figure.svelte-1ifywjh svg image,
 #gods-iconography-Tezcatlipoca3 figure.svelte-1ifywjh svg image {
-    transform: translateY(1vh);
-    transform-origin: center center;
-}
-
-/* 单独放大“龙抬头”（tu3zhong.svg）的底图，不放大圆圈等 SVG 叠加元素 */
-#gods-iconography-tlalte2 figure.svelte-1ifywjh svg,
-#gods-iconography-Tlaltecuhtli2 figure.svelte-1ifywjh svg {
-    transform: none; /* 不整体缩放 SVG，避免圆圈变形 */
-}
-
-
-/* tu1zhong（tlalte）单独调 */
-#gods-iconography-tlalte figure.svelte-1ifywjh svg image,
-#gods-iconography-Tlaltecuhtli figure.svelte-1ifywjh svg image {
-  transform: translateY(-100vh);
-}
-/* tu2zhong（tezca）单独调 */
-#gods-iconography-tezca figure.svelte-1ifywjh svg image,
-#gods-iconography-Tezcatlipoca figure.svelte-1ifywjh svg image {
-  transform: translateY(-100vh);
-}
-/* tu3zhong（tlalte2）单独调（这张你还有 scale，就要一起写） */
-#gods-iconography-tlalte2 figure.svelte-1ifywjh svg image,
-#gods-iconography-Tlaltecuhtli2 figure.svelte-1ifywjh svg image {
-  transform:  translateX(-100px) translateY(-80vh) scale(1.5);
+  transform: translateY(var(--zhong-global-shift-y));
   transform-origin: center center;
 }
-/* tu4zhong（tezca2）单独调 */
-#gods-iconography-tezca2 figure.svelte-1ifywjh svg image,
-#gods-iconography-Tezcatlipoca2 figure.svelte-1ifywjh svg image {
-  transform: translateY(-65vh) scale(0.9);
-  transform-origin: center center;
+
+@media only screen and (min-width: 1440px) {
+  #scrolly.svelte-1ifywjh {
+    /* 大屏同样：右列略窄、中间略宽，与上一段同一思路 */
+    grid-template-columns: 31fr 46fr 23fr;
+    max-width: 2000px;
+    width: 92%;
+  }
+
+  figure.svelte-1ifywjh > div {
+    --zhong-stage-width: min(100%, 44rem);
+    --zhong-stage-height: clamp(22rem, 56vh, 40rem);
+  }
 }
-/* tu5zhong（tlalte3）单独调 */
-#gods-iconography-tlalte3 figure.svelte-1ifywjh svg image,
-#gods-iconography-Tlaltecuhtli3 figure.svelte-1ifywjh svg image {
-  transform: translateY(-100vh);
-}
-/* tu6zhong（tezca3）单独调 */
-#gods-iconography-tezca3 figure.svelte-1ifywjh svg image,
-#gods-iconography-Tezcatlipoca3 figure.svelte-1ifywjh svg image {
-  transform: translateY(-100vh);
+
+@media only screen and (max-height: 900px) and (min-width: 1024px) {
+  figure.svelte-1ifywjh > div {
+    --zhong-stage-height: clamp(22rem, 56vh, 38rem);
+  }
 }

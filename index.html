@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="./_app/assets/start-c446e5f0.css">
 		<link rel="stylesheet" href="./_app/assets/pages/__layout.svelte-bcde33e9.css">
 		<link rel="stylesheet" href="./_app/assets/index-72194ee4.css">
-		<link rel="stylesheet" href="./_app/assets/iconographySetup-f50c2c7e.css?v=7">
+		<link rel="stylesheet" href="./_app/assets/iconographySetup-f50c2c7e.css?v=11">
 
 		<style>
 			/* 首屏即隐藏两位神区块，避免刷新时闪一下；脚本注入麦田后再设为 display:none */
@@ -29,6 +29,11 @@
 				pointer-events: none;
 			}
 			/* 不再强制隐藏 .step-title，让原始标题样式生效 */
+			/* 水合后 Svelte 会从打包 JS 再次挂上 hero / credits，仅从 HTML 删无效，故强制隐藏 */
+			#svelte .hero-image,
+			#svelte .credits {
+				display: none !important;
+			}
 		</style>
 
 		<script type="module">
@@ -105,13 +110,6 @@
 
   <h1 class="title svelte-z53s3l">传统农耕节日的可视化研究</h1>
 
-  <div class="hero-image svelte-z53s3l">
-      <span></span>
-    </div>
-    <div class="credits svelte-z53s3l"><div class="credits-line svelte-z53s3l"><div class="svelte-z53s3l">故事与插画</div>
-      <div class="svelte-z53s3l">chengyang lu</div></div>
-    <div class="credits-line svelte-z53s3l"><div class="svelte-z53s3l">代码</div>
-      <div class="svelte-z53s3l">chengyang lu</div></div></div>
 </section>
 
 <section id="intro" style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j centered"><div class="intro svelte-et4ow4"><p class="svelte-nusxv"><!-- HTML_TAG_START -->我对中国传统农耕节日的兴趣，始于童年时在乡下姥姥家的记忆。那时候，每逢二月二，姥姥总会在门槛上撒一道灰线，说是"引龙回"，能保一年不闹虫灾。我蹲在一旁看她做这些事，只觉得神秘又有趣，却从没想过这背后藏着几千年的农耕智慧。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->后来在城市长大，那些节日渐渐变成了日历上模糊的符号。直到几年前做民俗调研，我才重新走进田野，看见苗族寨子里牛王节那天，耕牛角上戴着花环，主人捧着糯米饭一口一口喂它；看见哈尼族的长龙宴从山头摆到山脚，人们唱着歌感谢土地。那一刻，儿时的记忆突然被唤醒——原来这些节日不是死的传统，而是活着的仪式。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->我翻遍了地方志、民俗学著作和散落在各地的民族志，像拼图一样，把春节、牛王节、龙抬头、二十四节气、尝新节、社日这六个农耕节日的脉络一点点理清。它们有的庆祝岁首，有的感恩耕牛，有的祈求雨水，有的品尝新米，有的祭祀土地——每一个节日，都是古人顺应天时、感恩大地的方式。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->通过这组可视化作品，我想把这些散落在时间和空间里的节日碎片重新拼合，让更多人看见：我们的祖先如何在一年的轮回里，与土地对话，与季节共舞。也希望这些图像，能带你回到童年那个对世界充满好奇的自己，就像我回到姥姥家的那个二月二一样。<!-- HTML_TAG_END --></p></div>
@@ -185,18 +183,32 @@
     padding: 1rem 0;
     position: relative;
     /* 麦田滚动总时长：越大每层越“慢”且更均匀 */
-    min-height: 1000vh;
-    /* 确保缩放后的圆圈等元素不被裁剪（解决部署环境与本地渲染差异） */
-    overflow: visible;
+    min-height: var(--wheat-section-height, 1000vh);
   }
 
   .wheat-layers-wrap {
+    --wheat-scale: 1.22;
+    --wheat-shift-y: 40px;
+    --wheat-layer4-offset: 18px;
+    --wheat-layer5-offset: -8px;
+    --wheat-layer6-offset: -10px;
+    --wheat-viewbox-ratio: 1.778;
+    --wheat-viewport-share: 80;
+    --wheat-side-gap: 2rem;
     position: sticky;
-    top: 12vh;
-    max-width: 1200px;
-    width: 100%;
+    top: var(--wheat-top, 12vh);
+    width: min(
+      calc(var(--wheat-viewport-share) * 1vw),
+      calc(var(--wheat-viewport-share) * 1vh * var(--wheat-viewbox-ratio)),
+      calc(100vw - var(--wheat-side-gap))
+    );
+    max-width: none;
     margin: 0 auto;
-    padding-bottom: 10%;
+    padding-bottom: var(--wheat-bottom-space, 10%);
+  }
+
+  .wheat-layers-wrap > * {
+    box-sizing: border-box;
   }
 
   .wheat-layer {
@@ -226,11 +238,6 @@
     margin: 0;
   }
 
-  /* 确保 layer06 中央圆圈不被 SVG 默认 overflow 裁剪，解决部署环境渲染差异 */
-  #wheat-layers .wheat-layer.layer-6 svg {
-    overflow: visible;
-  }
-
   /* 让前景图层的鼠标事件穿透到文字层（layer04 的交互覆盖层），避免挡住文字交互 */
   .wheat-layers-wrap.scale-all .wheat-layer[class*="layer-"]:not(.layer-text) {
     pointer-events: none;
@@ -255,14 +262,15 @@
   /* 把缩放应用到每个 .wheat-layer（外层统一缩放，保证对齐） layer放大放小       */
   .wheat-layers-wrap.scale-all .wheat-layer {
     transform-origin: center center;
-    transform: translateY(5vh) scale(1.33); /* 向下偏移 6vh 并放大 55% */
+    transform: translateY(var(--wheat-shift-y)) scale(var(--wheat-scale));
     transition: transform 0.2s ease;
+    will-change: transform, opacity;
   }
 
   /* 单独微调 layer04 ~ layer06 的垂直位置（在统一缩放的基础上再偏移） */
   .wheat-layers-wrap.scale-all .wheat-layer.layer-4 {
     transform-origin: center center;
-    transform: translateY(7.3vh) scale(1.33); /* 比默认略往上 */
+    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer4-offset))) scale(var(--wheat-scale));
   }
 
   /* layer04 现在由 `layer-text` 覆盖层负责显示与交互；
@@ -273,45 +281,33 @@
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-5 {
     transform-origin: center center;
-    transform: translateY(5.3vh) scale(1.33); /* 再往上一些，你可按效果继续调 */
+    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer5-offset))) scale(var(--wheat-scale));
   }
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-6 {
     transform-origin: center center;
-    transform: translateY(4.1vh) scale(1.33); /* 保持和默认一致，方便以后再改 */
+    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer6-offset))) scale(var(--wheat-scale));
   }
 
   .wheat-layer.layer-text g[id^="pary-"] {
     cursor: pointer;
   }
 
-  /*
-   * layer04 交互层：内联自 layer04.svg（fetch 后插入 .layer-text）。
-   * 图标「隐藏」= 填充全透明，只留轮廓线，热区仍可 hover；
-   * 文案在 SVG 内多为 .cls-39，始终不可见，由 #wheat-big-label 显示对应 wheatLabels。
-   */
-  .wheat-layer.layer-text g[id^="pary-"] path,
-  .wheat-layer.layer-text g[id^="pary-"] polygon,
-  .wheat-layer.layer-text g[id^="pary-"] ellipse,
-  .wheat-layer.layer-text g[id^="pary-"] circle,
-  .wheat-layer.layer-text g[id^="pary-"] rect {
-    fill: transparent !important;
-    stroke: #c5a673;
-    stroke-width: 0.5px;
-  }
-
-  .wheat-layer.layer-text g[id^="pary-"] line {
-    stroke: #c5a673;
-    stroke-width: 0.5px;
-  }
-
   .wheat-layer.layer-text g[id^="pary-"] .cls-39 {
-    opacity: 0 !important; /* SVG 内文字隐藏，仅用外部浮动标签 */
+    opacity: 0 !important; /* 需要全部消失：不再依赖 hover */
     transition: opacity 0.2s ease;
   }
 
+  /* 悬停时隐藏（仍保留，确保旧样式不会覆盖新规则） */
   .wheat-layer.layer-text g[id^="pary-"]:hover .cls-39 {
     opacity: 0 !important;
+  }
+
+  /* 方案 A：常态下图标图形透明，悬停时由下方规则显示白描边；pointer-events 保证透明仍可命中 */
+  .wheat-layer.layer-text g[id^="pary-"] :not(.cls-39) {
+    fill: transparent;
+    stroke: transparent;
+    pointer-events: all;
   }
 
   #wheat-big-label {
@@ -330,7 +326,7 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease, visibility 0.2s ease;
-    /* 文字光晕（与页面背景 rgb(244,241,239) 一致） */
+    /* 用阴影描一圈，字心保持黑色 */
     text-shadow:
       -1px -1px 0 rgb(244, 241, 239), 1px -1px 0 rgb(244, 241, 239), -1px 1px 0 rgb(244, 241, 239), 1px 1px 0 rgb(244, 241, 239),
       0 -1px 0 rgb(244, 241, 239), 0 1px 0 rgb(244, 241, 239), -1px 0 0 rgb(244, 241, 239), 1px 0 0 rgb(244, 241, 239),
@@ -340,6 +336,92 @@
   #wheat-big-label.visible {
     visibility: visible;
     opacity: 1;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .wheat-layers-wrap {
+      --wheat-side-gap: 4rem;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .wheat-layers-wrap {
+      --wheat-scale: 1.2;
+      --wheat-shift-y: 32px;
+      --wheat-layer4-offset: 14px;
+      --wheat-layer5-offset: -8px;
+      --wheat-layer6-offset: -10px;
+      --wheat-top: clamp(48px, 8vh, 96px);
+      --wheat-bottom-space: 8%;
+      --wheat-side-gap: 5rem;
+      --wheat-viewport-share: 80;
+    }
+  }
+
+  @media only screen and (min-width: 1366px) {
+    .wheat-layers-wrap {
+      --wheat-scale: 1.24;
+      --wheat-shift-y: 38px;
+      --wheat-layer4-offset: 18px;
+      --wheat-layer5-offset: -8px;
+      --wheat-layer6-offset: -10px;
+      --wheat-side-gap: 6rem;
+      --wheat-viewport-share: 80;
+    }
+  }
+
+  @media only screen and (min-width: 1600px) {
+    .wheat-layers-wrap {
+      --wheat-scale: 1.27;
+      --wheat-shift-y: 42px;
+      --wheat-layer4-offset: 20px;
+      --wheat-layer5-offset: -6px;
+      --wheat-layer6-offset: -8px;
+      --wheat-bottom-space: 6%;
+      --wheat-side-gap: 8rem;
+      --wheat-viewport-share: 80;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) and (max-height: 900px) {
+    .wheat-layers-wrap {
+      --wheat-top: clamp(24px, 5vh, 56px);
+      --wheat-shift-y: 20px;
+      --wheat-layer4-offset: 10px;
+      --wheat-layer5-offset: 0px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) and (min-aspect-ratio: 16/10) {
+    .wheat-layers-wrap {
+      --wheat-scale: 1.18;
+      --wheat-shift-y: 24px;
+      --wheat-layer4-offset: 12px;
+    }
+  }
+
+  @media only screen and (max-width: 767px), (pointer: coarse) {
+    .wheat-section {
+      --wheat-section-height: 720vh;
+    }
+
+    .wheat-layers-wrap {
+      --wheat-scale: 1;
+      --wheat-shift-y: 0px;
+      --wheat-layer4-offset: 0px;
+      --wheat-layer5-offset: 0px;
+      --wheat-layer6-offset: 0px;
+      --wheat-top: 0;
+      --wheat-bottom-space: 0;
+      --wheat-side-gap: 1rem;
+      --wheat-viewport-share: 94;
+      width: min(
+        calc(var(--wheat-viewport-share) * 1vw),
+        calc(var(--wheat-viewport-share) * 1vh * var(--wheat-viewbox-ratio)),
+        calc(100vw - var(--wheat-side-gap))
+      );
+      padding-inline: 0.5rem;
+    }
   }
 
   /* 悬停：图标边框发光 */
@@ -588,6 +670,94 @@
     var bigLabelEl = null;
     var labelsAllowed = false;
 
+    function setWheatResponsiveVars() {
+      var vw = window.innerWidth || document.documentElement.clientWidth || 0;
+      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      var aspect = vh ? vw / vh : 1;
+      var isMobile = vw < 768 || window.matchMedia('(pointer: coarse)').matches;
+
+      if (isMobile) {
+        wrap.style.setProperty('--wheat-scale', '1');
+        wrap.style.setProperty('--wheat-shift-y', '0px');
+        wrap.style.setProperty('--wheat-layer4-offset', '0px');
+        wrap.style.setProperty('--wheat-layer5-offset', '0px');
+        wrap.style.setProperty('--wheat-layer6-offset', '0px');
+        wrap.style.setProperty('--wheat-top', '0px');
+        wrap.style.setProperty('--wheat-bottom-space', '0');
+        wrap.style.setProperty('--wheat-side-gap', '1rem');
+        wrap.style.setProperty('--wheat-viewport-share', '94');
+        section.style.setProperty('--wheat-section-height', '720vh');
+        return;
+      }
+
+      var desktopScale = 1.24;
+      var shiftY = 38;
+      var layer4Offset = 18;
+      var layer5Offset = -8;
+      var layer6Offset = -10;
+      var stickyTop = Math.round(Math.max(32, Math.min(96, vh * 0.08)));
+      var viewportShare = 80;
+      var sideGap = 80;
+      var sectionHeight = 1000;
+
+      if (vw >= 1600) {
+        desktopScale = 1.27;
+        shiftY = 42;
+        layer4Offset = 20;
+        layer5Offset = -6;
+        layer6Offset = -27;
+        sideGap = 128;
+      } else if (vw >= 1366) {
+        desktopScale = 1.24;
+        shiftY = 38;
+        layer4Offset = 18;
+        layer5Offset = -8;
+        layer6Offset = -26;
+        sideGap = 96;
+      } else if (vw >= 1024) {
+        desktopScale = 1.2;
+        shiftY = 32;
+        layer4Offset = 14;
+        layer5Offset = -8;
+        layer6Offset = -25;
+        sideGap = 80;
+      }
+
+      if (vh <= 900) {
+        shiftY -= 10;
+        layer4Offset -= 4;
+        layer5Offset -= 2;
+        layer6Offset -= 2;
+        stickyTop = Math.round(Math.max(24, Math.min(64, vh * 0.055)));
+      }
+
+      if (aspect >= 1.6) {
+        desktopScale -= 0.04;
+        shiftY -= 8;
+        layer4Offset -= 3;
+      }
+
+      if (aspect <= 1.34) {
+        desktopScale += 0.02;
+        shiftY += 4;
+      }
+
+      if (vh < 780) viewportShare = 76;
+      else if (vh < 900) viewportShare = 78;
+      else viewportShare = 80;
+
+      wrap.style.setProperty('--wheat-scale', String(Math.max(1.16, desktopScale)));
+      wrap.style.setProperty('--wheat-shift-y', Math.max(12, shiftY) + 'px');
+      wrap.style.setProperty('--wheat-layer4-offset', Math.max(6, layer4Offset) + 'px');
+      wrap.style.setProperty('--wheat-layer5-offset', layer5Offset + 'px');
+      wrap.style.setProperty('--wheat-layer6-offset', layer6Offset + 'px');
+      wrap.style.setProperty('--wheat-top', stickyTop + 'px');
+      wrap.style.setProperty('--wheat-side-gap', sideGap + 'px');
+      wrap.style.setProperty('--wheat-viewport-share', String(viewportShare));
+      wrap.style.setProperty('--wheat-bottom-space', vw >= 1600 ? '6%' : '8%');
+      section.style.setProperty('--wheat-section-height', sectionHeight + 'vh');
+    }
+
     function setupScrollAndHover() {
       // 文字交互覆盖层：使用 layer-4 + layer-text 标记
       const textLayer = section.querySelector('.wheat-layer.layer-text');
@@ -787,13 +957,18 @@
       }
     }
 
+    setWheatResponsiveVars();
+
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               window.addEventListener('scroll', updateOpacity, { passive: true });
-              window.addEventListener('resize', updateOpacity);
+              window.addEventListener('resize', function () {
+                setWheatResponsiveVars();
+                updateOpacity();
+              });
               updateOpacity();
             }
           });
@@ -805,12 +980,14 @@
       observer.observe(section);
     } else {
       window.addEventListener('scroll', updateOpacity, { passive: true });
-      window.addEventListener('resize', updateOpacity);
+      window.addEventListener('resize', function () {
+        setWheatResponsiveVars();
+        updateOpacity();
+      });
       updateOpacity();
     }
 
-    // layer04 交互层：正常用 fetch 取 SVG 文本 → 内联到 DOM（非 <img>），才能用 CSS 控制 pary-*；
-    // 若 fetch 失败则退回 <img>，此时无法按分组描边/hover，需检查路径或本地服务。
+    // 加载 layer04.svg 作为交互文字层（覆盖在 layer04 上）
     fetch('./assets/img/layer04.svg')
       .then(function (r) { return r.text(); })
       .then(function (html) {
@@ -863,6 +1040,20 @@
   window.addEventListener('load', function () {
     runWheatInjection() || scheduleWheatInjection();
   });
+
+  /* 中间 tu*zhong：根 <svg> 默认 xMidYMid，在细长视口里会把方形 viewBox 垂直居中，整块图显得偏下。
+      hydration 后补一次属性，避免旧缓存 JS 未带 preserveAspectRatio。 */
+  function patchZhongSvgAlign() {
+    document.querySelectorAll('#scrolly figure > svg').forEach(function (svg) {
+      svg.setAttribute('preserveAspectRatio', 'xMidYMin meet');
+      var im = svg.querySelector('g > image, image');
+      if (im) im.setAttribute('preserveAspectRatio', 'xMidYMin meet');
+    });
+  }
+  [0, 200, 800, 2000].forEach(function (ms) {
+    setTimeout(patchZhongSvgAlign, ms);
+  });
+  window.addEventListener('load', patchZhongSvgAlign);
 
   // 之前这里会强制移除 .step-title，现在已停用以恢复标题与横线
 </script>

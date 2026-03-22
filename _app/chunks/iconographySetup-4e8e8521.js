@@ -232,6 +232,7 @@ function ve(r) {
         width: !0,
         height: !0,
         viewBox: !0,
+        preserveAspectRatio: !0,
         xmlns: !0,
         "xml:space": !0,
         style: !0
@@ -246,7 +247,8 @@ function ve(r) {
         x: !0,
         y: !0,
         height: !0,
-        width: !0
+        width: !0,
+        preserveAspectRatio: !0
       }), E(l).forEach(v), u.forEach(v), h = D(g, "mask", {
         id: !0
       });
@@ -265,7 +267,7 @@ function ve(r) {
       g.forEach(v), this.h()
     },
     h() {
-      f(l, "href", t = `assets/img/${r[1]}`), f(l, "x", "0"), f(l, "y", "0"), f(l, "height", "100%"), f(l, "width", "100%"), f(i, "mask", s = `url(#mask-${r[0]})`), f(c, "x", "0"), f(c, "y", "0"), f(c, "width", a = r[4][1]), f(c, "height", _ = r[4][1]), f(c, "fill", "white"), f(c, "fill-opacity", .1), f(h, "id", y = `mask-${r[0]}`), f(e, "width", "100%"), f(e, "height", "100%"), f(e, "viewBox", R = "0 0 " + r[4][1] + " " + r[4][1]), f(e, "xmlns", "http://www.w3.org/2000/svg"), f(e, "xml:space", "preserve"), U(e, "fill-rule", "evenodd"), U(e, "clip-rule", "evenodd"), U(e, "stroke-linecap", "round"), U(e, "stroke-linejoin", "round"), U(e, "overflow", "visible")
+      f(l, "href", t = `assets/img/${r[1]}`), f(l, "x", "0"), f(l, "y", "0"), f(l, "height", "100%"), f(l, "width", "100%"), f(l, "preserveAspectRatio", "xMidYMin meet"), f(i, "mask", s = `url(#mask-${r[0]})`), f(c, "x", "0"), f(c, "y", "0"), f(c, "width", a = r[4][1]), f(c, "height", _ = r[4][1]), f(c, "fill", "white"), f(c, "fill-opacity", .1), f(h, "id", y = `mask-${r[0]}`), f(e, "width", "100%"), f(e, "height", "100%"), f(e, "viewBox", R = "0 0 " + r[4][1] + " " + r[4][1]), f(e, "preserveAspectRatio", "xMidYMin meet"), f(e, "xmlns", "http://www.w3.org/2000/svg"), f(e, "xml:space", "preserve"), U(e, "fill-rule", "evenodd"), U(e, "clip-rule", "evenodd"), U(e, "stroke-linecap", "round"), U(e, "stroke-linejoin", "round"), U(e, "overflow", "visible")
     },
     m(o, g) {
       P(o, e, g), M(e, i), M(i, l), M(e, h), M(h, c);
@@ -704,30 +706,30 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .35,
+        cy: .45,
         rx: .52,
         ry: .41
       }],
       colors: [{
         cx: .18,
-        cy: .55,
+        cy: .65,
         rx: .19,
         ry: .19
       }],
       face: [{
         cx: .32,
-        cy: .15,
+        cy: .25,
         rx: .18,
         ry: .18
       }, {
-        cx: .63,
-        cy: .13,
+        cx: .6,
+        cy: .23,
         rx: .1,
         ry: .15
       }],
       spear: [{
         cx: .81,
-        cy: .55,
+        cy: .65,
         rx: .22,
         ry: .17
       }]
@@ -740,28 +742,28 @@ const He = {
         ry: 0
       }],
       intro: [{
-        cx: .5,
-        cy: .39,
-        rx: .46,
-        ry: .46
+        cx: .505,
+        cy: .45,
+        rx: .43,
+        ry: .43
       }],
       colors: [{
-        cx: .505,
-        cy: .39,
-        rx: .39,
-        ry: .39
+        cx: .507,
+        cy: .45,
+        rx: .38,
+        ry: .38
       }],
       face: [{
         cx: .505,
-        cy: .39,
-        rx: .22,
-        ry: .22
+        cy: .45,
+        rx: .24,
+        ry: .24
       }],
       spear: [{
         cx: .505,
-        cy: .385,
-        rx: .17,
-        ry: .17
+        cy: .45,
+        rx: .19,
+        ry: .19
       }]
     },
     tu6: {
@@ -773,25 +775,25 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .33,
+        cy: .43,
         rx: .49,
         ry: .4
       }],
       colors: [{
         cx: .57,
-        cy: .18,
+        cy: .28,
         rx: .23,
         ry: .24
       }],
       face: [{
         cx: .253,
-        cy: .24,
+        cy: .34,
         rx: .1,
         ry: .16
       }],
       spear: [{
         cx: .86,
-        cy: .29,
+        cy: .39,
         rx: .16,
         ry: .3
       }]
@@ -807,30 +809,30 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .37,
+        cy: .45,
         rx: .48,
         ry: .43
       }],
       cycle_timing: [{
         cx: .20,
-        cy: .6,
+        cy: .7,
         rx: .18,
         ry: .11
       }, {
         cx: .77,
-        cy: .6,
+        cy: .7,
         rx: .18,
         ry: .11
       }],
       hair: [{
         cx: .5,
-        cy: .5,
+        cy: .6,
         rx: .22,
         ry: .15
       }],
       mouth: [{
         cx: .28,
-        cy: .15,
+        cy: .25,
         rx: .13,
         ry: .18
       }]
@@ -843,26 +845,26 @@ const He = {
         ry: 0
       }],
       intro: [{
-        cx: .55,
-        cy: .37,
-        rx: .5,
+        cx: .505,
+        cy: .44,
+        rx: .52,
         ry: .43
       }],
       claws: [{
         cx: .87,
-        cy: .25,
+        cy: .3,
         rx: .19,
         ry: .16
       }],
       hair: [{
-        cx: .22,
-        cy: .47,
+        cx: .1,
+        cy: .55,
         rx: .14,
         ry: .17
       }],
       mouth: [{
-        cx: .31,
-        cy: .22,
+        cx: .23,
+        cy: .26,
         rx: .17,
         ry: .17
       }]
@@ -876,25 +878,25 @@ const He = {
       }],
       intro: [{
         cx: .5,
-        cy: .39,
-        rx: .46,
-        ry: .46
+        cy: .47,
+        rx: .5,
+        ry: .44
       }],
       claws: [{
         cx: .46,
-        cy: .15,
+        cy: .26,
         rx: .27,
         ry: .19
       }],
       hair: [{
         cx: .2,
-        cy: .48,
+        cy: .59,
         rx: .24,
         ry: .2
       }],
       mouth: [{
         cx: .83,
-        cy: .3,
+        cy: .41,
         rx: .18,
         ry: .1
       }]
