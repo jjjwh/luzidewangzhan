@@ -11,11 +11,11 @@
 		<link rel="modulepreload" href="./_app/chunks/preload-helper-1153c41b.js?v=4">
 		<link rel="modulepreload" href="./_app/pages/__layout.svelte-94229fb9.js?v=4">
 		<link rel="modulepreload" href="./_app/pages/index.svelte-75183b83.js?v=4">
-		<link rel="modulepreload" href="./_app/chunks/index-d573ac81.js?v=4">
+		<link rel="modulepreload" href="./_app/chunks/index-d573ac81.js?v=11">
 		<link rel="stylesheet" href="./_app/assets/start-c446e5f0.css">
-		<link rel="stylesheet" href="./_app/assets/pages/__layout.svelte-bcde33e9.css">
+		<link rel="stylesheet" href="./_app/assets/pages/__layout.svelte-bcde33e9.css?v=2">
 		<link rel="stylesheet" href="./_app/assets/index-72194ee4.css">
-		<link rel="stylesheet" href="./_app/assets/iconographySetup-f50c2c7e.css?v=11">
+		<link rel="stylesheet" href="./_app/assets/iconographySetup-f50c2c7e.css?v=12">
 
 		<style>
 			/* 首屏即隐藏两位神区块，避免刷新时闪一下；脚本注入麦田后再设为 display:none */
@@ -33,6 +33,63 @@
 			#svelte .hero-image,
 			#svelte .credits {
 				display: none !important;
+			}
+			/*
+			 * 主标题下方主题图
+			 * 若 PNG 仍是「不透明白底/黑底」而非透明通道，可用混合模式让纯黑接近消失（真透明需用 PS/GIMP 导出带 Alpha 的 PNG）。
+			 * 尺寸：改下面 max-width 的 15rem（越大图越大）。
+			 * 上下留白：改 .hero-title-emblem 的 margin，以及 h1 / #intro .intro 的 margin。
+			 */
+			#content > section:first-of-type h1.title.svelte-z53s3l {
+				/* 标题与下方主题图之间的留白：加大第二个值（下边距）可再拉开 */
+				margin: 0.75rem auto 2.12rem !important;
+			}
+			.hero-title-emblem {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 0.35rem auto 0.35rem;
+				padding: 0 0.75rem;
+				background: transparent;
+			}
+			.hero-title-emblem img {
+				display: block;
+				max-width: min(72vw, 15rem);
+				width: 100%;
+				height: auto;
+				object-fit: contain;
+				/* 透明底 SVG 用正常合成；若仍是黑底位图且要去黑，可恢复：mix-blend-mode: screen; */
+			}
+			/* 拉近主题图与下方引言正文（覆盖 index-72194ee4.css 里 .intro 的大 margin） */
+			#intro.centered .intro.svelte-et4ow4 {
+				margin: 0.5rem 1rem 1rem !important;
+			}
+			@media only screen and (min-width: 30em) {
+				#intro.centered .intro.svelte-et4ow4 {
+					margin: 0.5rem 1.25rem 1.25rem !important;
+					padding: 1.25rem !important;
+				}
+			}
+			@media only screen and (min-width: 50em) {
+				#intro.centered .intro.svelte-et4ow4 {
+					margin: 0.5rem 2rem 2rem !important;
+				}
+			}
+			/* Svelte 水合后仍会生成「研究中 / 特别致谢」两个空 h3 占位，隐藏之（数据已在 bundle 中清空） */
+			#article-sources > h3.svelte-1cm80l4:nth-of-type(2),
+			#article-sources > h3.svelte-1cm80l4:nth-of-type(3) {
+				display: none !important;
+			}
+			/* 参考文献区第一段正文与上方边框的距离（想再拉开就调这个值） */
+			#article-sources {
+				--article-sources-first-text-gap: 4.8rem; /* 约三行字高度 */
+			}
+			#article-sources > p.svelte-1cm80l4:first-of-type {
+				margin-top: var(--article-sources-first-text-gap) !important;
+			}
+			/* 相关网站区块底部留白 */
+			#article-sources > p.svelte-1cm80l4:last-of-type {
+				margin-bottom: 6rem !important;
 			}
 		</style>
 
@@ -109,16 +166,18 @@
         </div></div></div>
 
   <h1 class="title svelte-z53s3l">传统农耕节日的可视化研究</h1>
+  <div class="hero-title-emblem" role="presentation">
+    <img src="./assets/img/图片1.svg" alt="传统农耕节日可视化主题图形" width="300" height="300" decoding="async" loading="eager" />
+  </div>
 
 </section>
 
-<section id="intro" style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j centered"><div class="intro svelte-et4ow4"><p class="svelte-nusxv"><!-- HTML_TAG_START -->我对中国传统农耕节日的兴趣，始于童年时在乡下姥姥家的记忆。那时候，每逢二月二，姥姥总会在门槛上撒一道灰线，说是"引龙回"，能保一年不闹虫灾。我蹲在一旁看她做这些事，只觉得神秘又有趣，却从没想过这背后藏着几千年的农耕智慧。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->后来在城市长大，那些节日渐渐变成了日历上模糊的符号。直到几年前做民俗调研，我才重新走进田野，看见苗族寨子里牛王节那天，耕牛角上戴着花环，主人捧着糯米饭一口一口喂它；看见哈尼族的长龙宴从山头摆到山脚，人们唱着歌感谢土地。那一刻，儿时的记忆突然被唤醒——原来这些节日不是死的传统，而是活着的仪式。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->我翻遍了地方志、民俗学著作和散落在各地的民族志，像拼图一样，把春节、牛王节、龙抬头、二十四节气、尝新节、社日这六个农耕节日的脉络一点点理清。它们有的庆祝岁首，有的感恩耕牛，有的祈求雨水，有的品尝新米，有的祭祀土地——每一个节日，都是古人顺应天时、感恩大地的方式。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->通过这组可视化作品，我想把这些散落在时间和空间里的节日碎片重新拼合，让更多人看见：我们的祖先如何在一年的轮回里，与土地对话，与季节共舞。也希望这些图像，能带你回到童年那个对世界充满好奇的自己，就像我回到姥姥家的那个二月二一样。<!-- HTML_TAG_END --></p></div>
+<section id="intro" style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j centered"><div class="intro svelte-et4ow4"><p class="svelte-nusxv"><!-- HTML_TAG_START -->中国自古以农为本，以农立国，农耕文化是中国存在最为广泛的文化类型，是中国社会生产方式与生活秩序的基础。农耕文化是以农业生产为中心而形成的一种民俗文化，伴随农业生产活动形成的岁时节令、祭祀仪式与节庆习俗，在漫长历史发展过程中逐渐沉淀发展，形成了内容丰富、形态多样的农耕节日文化体系。传统农耕节日不仅记录了人们对季节更替、自然物候和农业生产规律的认识，也承载着祈福祭祀、凝聚族群和维系社会关系等多重文化功能，是中华优秀传统文化的重要组成部分。<!-- HTML_TAG_END --></p><p class="svelte-nusxv"><!-- HTML_TAG_START -->中国地域辽阔、民族众多，不同自然环境、生产方式与民俗传统共同塑造了丰富多元的农耕节日系统。同一节日在不同地区呈现出不同的仪式形态，不同民族也在长期迁徙、交流与融合中形成具有地方特色的节俗内容。这种多样性使传统农耕节日具有较高的文化研究价值。<!-- HTML_TAG_END --></p></div>
 </section>
 
-<section id="iconography" style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j centered"><h2 class="svelte-1qj6mko"><!-- HTML_TAG_START -->农耕节日的图像语言<!-- HTML_TAG_END --></h2>
+<section id="iconography" style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j centered"><h2 class="svelte-1qj6mko"><!-- HTML_TAG_START -->农耕节日的研究范围<!-- HTML_TAG_END --></h2>
 
-  <p class="svelte-1dpztt3 cap"><!-- HTML_TAG_START -->中国传统农耕节日，在各地的民俗图像与仪式记录中，像是一套可以反复组合的文化符号。每一个节日都有其核心形态，再通过地域性的习俗、饮食、歌舞、祭祀等“象征配饰”来丰富表达。即便是同一个节日，在不同民族和地区也会呈现出截然不同的面貌——春节在陕西要谒庙敬神，在壮族地区则要吃五色糯米饭；龙抬头在南方是开犁祭龙，在北方却是撒灰驱虫。<!-- HTML_TAG_END --></p>
-  <p class="svelte-1dpztt3"><!-- HTML_TAG_START -->研究者在梳理这些节日时也常常面临挑战：同样的祭祀仪式可能出现在不同节日中，相似的祈福行为可能指向不同的神灵。这些习俗就像会“换装”的文化符号，根据各地的自然环境、生产方式与民族信仰，自由组合、灵活表达。<br><br>下方呈现的六个节日可视化作品，正是基于这些散落在地方志、民俗调查和民族志中的图像与文字记录重新绘制而成。它们并非某个单一地区的忠实复刻，而是试图还原中国传统农耕节日的“符号语法”——让人们看见，在漫长的农耕文明中，我们的祖先是怎样用这些节日的仪式，与天地对话，与四季共生。<!-- HTML_TAG_END --></p>
+  <p class="svelte-1dpztt3 cap"><!-- HTML_TAG_START -->中国传统农耕节日体系是在农耕文明基础上生成的，其形成发展经历了一个复杂而渐进的历史过程。经由不同历史阶段的拓展，传统节日逐渐发展为全民共享的文化体系，代代相承、连绵不绝。中国各农耕地区间地理环境各有所异，故各地农耕节庆各有特色；而农耕文化交流在各地普遍存在，故各地农耕节庆又有传承性与相似性。本次研究对象聚焦于其中与农耕农事所衍生出的相关节日与习俗，因此畜牧业、渔业、林业为主体的节日暂不在研究范围之内；国内各地还有不少由宗教发展而来的节日，其中部分与当地的农耕文化相关联的将会进行设计研究，其余部分也暂不在研究范围之中。<!-- HTML_TAG_END --></p>
 </section>
 
 <section style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j"><div class="two-gods svelte-1isuzkc">
@@ -138,52 +197,47 @@
 
 
 <section id="article-sources" style="background-color: rgb(244,241,239);" class="svelte-1sbdr8j centered">
-  <p class="svelte-1cm80l4"><!-- HTML_TAG_START -->在成为一门追求客观准确的学术研究领域之前，历史本质上一直是由单一视角书写的。就我们的研究对象而言，面临着一个根本性困境：中国传统农耕节日的记载散落在浩如烟海的地方志、民俗志和文人笔记中，从未形成完整统一的图像谱系。历代统治者虽重视农事，却鲜有人像记录神灵那样系统地记录节日的视觉形态。更令人惋惜的是，许多珍贵的节俗图像资料在战乱与历史变迁中散佚，我们今天能看到的明清《耕织图》已是凤毛麟角。<br><br>所幸的是，近代以来一批民俗学先驱深入田野，抢救性地记录了大量农耕节日的活态传承。从顾颉刚的妙峰山调查，到钟敬文对民间节日的系统研究，再到凌纯声对边疆民族的田野考察，他们的工作为我们留下了宝贵的第一手资料。近年来，随着"二十四节气"被列入联合国教科文组织人类非物质文化遗产，以及"中国农民丰收节"的设立，农耕节日的学术研究迎来了新的生机。<!-- HTML_TAG_END --></p>
+  <p class="svelte-1cm80l4"><!-- HTML_TAG_START -->从农耕节日的自然背景角度来看，中国传统农耕节日的形成首先源于古代先民对自然节律的观察与顺应。在缺乏现代气象科学的古代，农业生产完全依赖于对自然变化、即农时的准确把握，正如《吕氏春秋·审时》所记载：“得时之稼兴，失时之稼约。”“不违农时”这一概念也成为社会共识。农时的重要性使得天文观测和物候记录成为农耕社会最重要的知识体系之一。早期人们通过所谓“土圭测影”的方式确定了夏至与冬至两大节气；成书汉代的《淮南子·天文训》与《礼记·月令》分别对天文与物侯进行了一系列定义，前者详细记录了二十四节气相关内容，后者记载表述了节气文化对社会秩序与生活用度的影响，并规定了生产与祭祀所需遵循的仪式，促成了对自然规律的总结转向仪式与节庆。<br><br>农耕节日的形成与演变不仅受自然环境影响，更与农耕社会的组织结构和文化心理需求密切相关。彭金山指出，农耕文化的内涵概括为应时、取宜、守则、和谐四个概念“应时”更多对应农耕与自然农时的关系，取宜、守则、和谐则体现在哲学思想层面居多。这些概念在农耕节日中有充分体现。<!-- HTML_TAG_END --></p>
 
-  <h3 class="svelte-1cm80l4">农耕节庆通论</h3>
+  <h3 class="svelte-1cm80l4">书籍著作</h3>
+  <ol class="svelte-1cm80l4 book-works-list" style="text-align: left; max-width: 48rem; margin: 0 auto 1.5rem; padding-left: 1.5rem; line-height: 1.65;">
+    <li style="margin-bottom: 0.5rem;">国家民委《民族问题五种丛书》[M]. 2005</li>
+    <li style="margin-bottom: 0.5rem;">张晓华《中国传统节日文化研究》[M]. 中国青年出版社, 2007</li>
+    <li style="margin-bottom: 0.5rem;">黄泽《西南民族节日文化》[M]. 云南大学出版社, 2012</li>
+    <li style="margin-bottom: 0.5rem;">申士垚, 傅美琳《中国风俗大辞典》[M]. 中国和平出版社, 1991</li>
+    <li style="margin-bottom: 0.5rem;">[清] 顾禄《清嘉录》[M]. 江苏古籍出版社, 1999</li>
+    <li style="margin-bottom: 0.5rem;">吕不韦. 《吕氏春秋》[M]. 北京: 中华书局, 2022.</li>
+    <li style="margin-bottom: 0.5rem;">刘安. 《淮南子》[M]. 北京: 中华书局, 2023.</li>
+    <li style="margin-bottom: 0.5rem;">戴圣. 《礼记》[M]. 北京: 中华书局, 2022.</li>
+    <li style="margin-bottom: 0.5rem;">萧放. 传统节日: 一宗重大的民族文化遗产[J]. 民族遗产, 2008, (00): 79-87.</li>
+    <li style="margin-bottom: 0.5rem;">王丹. 传统节日研究的三个维度——基于文化记忆理论的视角[J]. 中国人民大学学报, 2020, 34(01): 164-172.</li>
+  </ol>
 
-    <ul><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">中国节日风情论, </span>
-  <span class="author">马福贞，中国社会科学出版社，2013</span>
-</li><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">寻根与铸魂：中华丰收文化研究, </span>
-  <span class="author">唐珂主编，中国科学技术出版社，2022</span>
-</li><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">中国传统节日传承机制与当代振兴路径研究, </span>
-  <span class="author">张娜，国家社科基金项目</span>
-</li>
-    </ul><h3 class="svelte-1cm80l4">区域与民族研究</h3>
-
-    <ul><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">稻作民族的典型农耕祭祀——以哈尼族梯田祭祀为例, </span>
-  <span class="author">黄绍文、何作庆，《红河学院学报》</span>
-</li><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">哈尼稻作梯田系统传统节庆的形态和价值, </span>
-  <span class="author">汪德辉，《中国农业大学学报(社会科学版)》</span>
-</li><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">仪式观视角下隆安稻神祭民俗的传播研究, </span>
-  <span class="author">张小姣</span>
-</li>
-    </ul><h3 class="svelte-1cm80l4">图像与视觉研究</h3>
-
-    <ul><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">中国古代农耕图像研究的理念与方法, </span>
-  <span class="author">王加华，山东大学</span>
-</li><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">中国传统节气文化的图像叙事, </span>
-  <span class="author">王研霞，《包装工程》2021年第10期</span>
-</li><li class="svelte-1bt51n9"><span class="title svelte-1bt51n9">立春民俗的集体记忆与生活实践——基于清以来"春牛图年画"的图像研究, </span>
-  <span class="author">孙芳、赵铮，《农业考古》2023年第4期</span>
-</li>
-    </ul><h3 class="svelte-1cm80l4">研究中</h3>
-  <p class="svelte-1cm80l4"><!-- HTML_TAG_START -->目前我们整理了六个核心农耕节日——年节、牛王节、龙抬头、二十四节气、尝新节、社日的文献资料与图像元素。每一个节日都涉及复杂的仪式系统、饮食习俗、歌舞形式和地域变体。还有一批地方性节庆资料尚在整理中，因缺乏清晰的图像记录或时间所限，暂未纳入本次可视化呈现。<br><br>我们期待在未来不断完善和扩展这一研究。如果您对这个项目感兴趣，或拥有相关的民俗图像资料、地方文献线索，欢迎联系指正。谨此预先感谢您的帮助！<!-- HTML_TAG_END --></p>
-
-  <h3 class="svelte-1cm80l4">特别致谢</h3>
-  <p class="svelte-1cm80l4"><!-- HTML_TAG_START -->在研究过程中，特别感谢在云南、贵州、广西田野调查中给予热情接待的各民族乡亲，是他们让这些古老的节日仪式依然鲜活地存在于当下的生活之中。<!-- HTML_TAG_END --></p>
-
-  <h3 class="svelte-1cm80l4">推荐网站</h3>
-  <p class="svelte-1cm80l4"><!-- HTML_TAG_START --><a href="http://www.chinesefolklore.org.cn/">中国民俗学网</a>，民俗学研究者的学术家园，收录大量农耕节日田野报告<!-- HTML_TAG_END --></p><p class="svelte-1cm80l4"><!-- HTML_TAG_START --><a href="http://www.ihchina.cn/">中国非物质文化遗产网</a>，二十四节气等农耕节日遗产的官方展示平台<!-- HTML_TAG_END --></p>
-...</section></main>
+  <h3 class="svelte-1cm80l4">相关网站</h3>
+  <p class="svelte-1cm80l4"><!-- HTML_TAG_START --><a href="https://www.ihchina.cn/" target="_blank" rel="noopener noreferrer">中国非物质文化遗产网·中国非物质文化遗产数字博物馆</a>（www.ihchina.cn/）<!-- HTML_TAG_END --></p>
+  <p class="svelte-1cm80l4"><!-- HTML_TAG_START --><a href="https://www.gzfwz.org.cn/" target="_blank" rel="noopener noreferrer">贵州省非物质文化遗产保护中心</a>（www.gzfwz.org.cn）<!-- HTML_TAG_END --></p>
+  <p class="svelte-1cm80l4"><!-- HTML_TAG_START --><a href="https://www.ynich.cn/" target="_blank" rel="noopener noreferrer">云南非物质文化遗产保护网</a>（www.ynich.cn）<!-- HTML_TAG_END --></p>
+  <p class="svelte-1cm80l4"><!-- HTML_TAG_START --><a href="https://www.gxfybhw.cn/" target="_blank" rel="noopener noreferrer">广西非物质文化遗产网</a>（www.gxfybhw.cn）<!-- HTML_TAG_END --></p>
+  <p class="svelte-1cm80l4"><!-- HTML_TAG_START -->其它各省级非物质文化遗产网站<!-- HTML_TAG_END --></p>
+</section>
+</main>
 
 		</div>
 <style>
+  /* 「农耕节日的研究范围」正文与下方麦田可视化之间的留白 */
+  #iconography {
+    padding-bottom: 2rem;
+  }
+
   .wheat-section {
     padding: 1rem 0;
     position: relative;
     /* 麦田滚动总时长：越大每层越“慢”且更均匀 */
     min-height: var(--wheat-section-height, 1000vh);
+  }
+
+  section#wheat-layers.wheat-section {
+    padding-top: 1.75rem;
   }
 
   .wheat-layers-wrap {
@@ -192,6 +246,8 @@
     --wheat-layer4-offset: 18px;
     --wheat-layer5-offset: -8px;
     --wheat-layer6-offset: -10px;
+    --wheat-layer5-scale-mul: 1;
+    --wheat-layer6-scale-mul: 1;
     --wheat-viewbox-ratio: 1.778;
     --wheat-viewport-share: 80;
     --wheat-side-gap: 2rem;
@@ -281,12 +337,14 @@
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-5 {
     transform-origin: center center;
-    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer5-offset))) scale(var(--wheat-scale));
+    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer5-offset)))
+      scale(calc(var(--wheat-scale) * var(--wheat-layer5-scale-mul)));
   }
 
   .wheat-layers-wrap.scale-all .wheat-layer.layer-6 {
     transform-origin: center center;
-    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer6-offset))) scale(var(--wheat-scale));
+    transform: translateY(calc(var(--wheat-shift-y) + var(--wheat-layer6-offset)))
+      scale(calc(var(--wheat-scale) * var(--wheat-layer6-scale-mul)));
   }
 
   .wheat-layer.layer-text g[id^="pary-"] {
@@ -349,8 +407,10 @@
       --wheat-scale: 1.2;
       --wheat-shift-y: 32px;
       --wheat-layer4-offset: 14px;
-      --wheat-layer5-offset: -8px;
-      --wheat-layer6-offset: -10px;
+      --wheat-layer5-offset: 0px;
+      --wheat-layer6-offset: 0px;
+      --wheat-layer5-scale-mul: 1;
+      --wheat-layer6-scale-mul: 1;
       --wheat-top: clamp(48px, 8vh, 96px);
       --wheat-bottom-space: 8%;
       --wheat-side-gap: 5rem;
@@ -363,8 +423,10 @@
       --wheat-scale: 1.24;
       --wheat-shift-y: 38px;
       --wheat-layer4-offset: 18px;
-      --wheat-layer5-offset: -8px;
-      --wheat-layer6-offset: -10px;
+      --wheat-layer5-offset: 0px;
+      --wheat-layer6-offset: 0px;
+      --wheat-layer5-scale-mul: 1;
+      --wheat-layer6-scale-mul: 1;
       --wheat-side-gap: 6rem;
       --wheat-viewport-share: 80;
     }
@@ -375,8 +437,10 @@
       --wheat-scale: 1.27;
       --wheat-shift-y: 42px;
       --wheat-layer4-offset: 20px;
-      --wheat-layer5-offset: -6px;
-      --wheat-layer6-offset: -8px;
+      --wheat-layer5-offset: 0px;
+      --wheat-layer6-offset: 0px;
+      --wheat-layer5-scale-mul: 1;
+      --wheat-layer6-scale-mul: 1;
       --wheat-bottom-space: 6%;
       --wheat-side-gap: 8rem;
       --wheat-viewport-share: 80;
@@ -411,6 +475,8 @@
       --wheat-layer4-offset: 0px;
       --wheat-layer5-offset: 0px;
       --wheat-layer6-offset: 0px;
+      --wheat-layer5-scale-mul: 1;
+      --wheat-layer6-scale-mul: 1;
       --wheat-top: 0;
       --wheat-bottom-space: 0;
       --wheat-side-gap: 1rem;
@@ -680,8 +746,6 @@
         wrap.style.setProperty('--wheat-scale', '1');
         wrap.style.setProperty('--wheat-shift-y', '0px');
         wrap.style.setProperty('--wheat-layer4-offset', '0px');
-        wrap.style.setProperty('--wheat-layer5-offset', '0px');
-        wrap.style.setProperty('--wheat-layer6-offset', '0px');
         wrap.style.setProperty('--wheat-top', '0px');
         wrap.style.setProperty('--wheat-bottom-space', '0');
         wrap.style.setProperty('--wheat-side-gap', '1rem');
@@ -749,8 +813,6 @@
       wrap.style.setProperty('--wheat-scale', String(Math.max(1.16, desktopScale)));
       wrap.style.setProperty('--wheat-shift-y', Math.max(12, shiftY) + 'px');
       wrap.style.setProperty('--wheat-layer4-offset', Math.max(6, layer4Offset) + 'px');
-      wrap.style.setProperty('--wheat-layer5-offset', layer5Offset + 'px');
-      wrap.style.setProperty('--wheat-layer6-offset', layer6Offset + 'px');
       wrap.style.setProperty('--wheat-top', stickyTop + 'px');
       wrap.style.setProperty('--wheat-side-gap', sideGap + 'px');
       wrap.style.setProperty('--wheat-viewport-share', String(viewportShare));
@@ -842,6 +904,14 @@
         }
       });
 
+      // 当 layer06 出现时，强制让 layer02~layer05 全透明（只保留 layer06）
+      const layer06OpacityNow = layers[5] ? parseFloat(layers[5].style.opacity || '0') : 0;
+      if (layer06OpacityNow > 0) {
+        for (let i = 0; i <= 4; i++) {
+          if (layers[i]) layers[i].style.opacity = '0';
+        }
+      }
+
       // duiyin 动画（复制 layer06 的同款逻辑到 layer02 / 03 / 3.5 / 05 / 06）
       // 你主要调下面 4 个参数即可（所有层同款）
       var duiyinMoveX = 0;      // 左右移动（SVG 坐标单位）
@@ -855,6 +925,8 @@
       // - stretch：到位点比例（相对本层区间长度）。>1 更慢更晚到位；<1 更快更早到位
       // - easePower：>1 前段更慢；=1 线性；(0,1) 前段更快（一般不建议）
       // - fadeAfter：到位后淡出所需的额外滚动余量（0=立刻消失）
+      // - fadeOutToSectionEnd：为 true 时忽略 fadeAfter 数值，淡出占用 [duiyinEnd, structuralSpan] 整段，
+      //   保证滚到麦田区末尾（progress=1）时 opacity 一定为 0（避免 fadeAfter 过大滚不完）
       var duiyinOverrides = {
         // layer02
         'layer2-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
@@ -864,9 +936,9 @@
         'layer35-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
         // layer05（会很快被 layer06 盖住，通常需要更早到位）
         // 让 fade-in 更快，避免“整张层也像渐变出现”的视觉错觉
-        'layer5-': { stretch: 0.7, easePower: 1.2, fadeAfter: 0.08 },
-        // layer06
-        'layer6-': { stretch: 1, easePower: 1.2, fadeAfter: 0.08 }
+        'layer5-': { stretch: 1, easePower: 1.2, fadeAfter: 0.08 },
+        // layer06：淡出对齐麦田区终点，最后一定完全透明
+        'layer6-': { stretch: 1, easePower: 0.8, fadeOutToSectionEnd: true }
       };
 
       function applyDuiyinForLayer(prefix, layerIndex) {
@@ -882,7 +954,10 @@
         var start = (layerIndex / n) * structuralSpan;
         var end = ((layerIndex + 1) / n) * structuralSpan;
         var duiyinEnd = start + (end - start) * stretch;
-        duiyinEnd = Math.max(start + 1e-6, Math.min(1, duiyinEnd));
+        duiyinEnd = Math.max(start + 1e-6, Math.min(structuralSpan, duiyinEnd));
+        if (override.fadeOutToSectionEnd) {
+          fadeAfter = Math.max(1e-6, structuralSpan - duiyinEnd);
+        }
         var rawT = (progress - start) / Math.max(duiyinEnd - start, 1e-6);
         var t = clamp(rawT, 0, 1);
         var tSlow = Math.pow(t, easePower);
@@ -907,8 +982,8 @@
         } else {
           // 正常淡出：在 duiyinEnd 之后再滚动 fadeAfter 的“progress”长度淡出
           var fadeStart = duiyinEnd;
-          if (fadeStart >= 1 - 1e-6) {
-            fadeStart = Math.max(start, 1 - fadeAfter);
+          if (fadeStart >= structuralSpan - 1e-6) {
+            fadeStart = Math.max(start, structuralSpan - fadeAfter);
           }
           if (progress >= fadeStart) {
             var fadeT = (progress - fadeStart) / Math.max(fadeAfter, 1e-6);
@@ -1041,6 +1116,30 @@
     runWheatInjection() || scheduleWheatInjection();
   });
 
+  /* 主标题下主题图：水合后若 Svelte 重建 DOM 导致丢失，则在 h1 后补插一次   */
+  function patchHeroTitleEmblem() {
+    var h1 = document.querySelector('#content h1.title.svelte-z53s3l');
+    if (!h1 || !h1.parentNode) return;
+    var host = h1.parentNode;
+    if (host.querySelector('.hero-title-emblem')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'hero-title-emblem';
+    wrap.setAttribute('role', 'presentation');
+    var img = document.createElement('img');
+    img.src = './assets/img/图片1.svg';
+    img.alt = '传统农耕节日可视化主题图形';
+    img.width = 300;
+    img.height = 300;
+    img.decoding = 'async';
+    img.loading = 'eager';
+    wrap.appendChild(img);
+    h1.insertAdjacentElement('afterend', wrap);
+  }
+  [0, 100, 400, 1200].forEach(function (ms) {
+    setTimeout(patchHeroTitleEmblem, ms);
+  });
+  window.addEventListener('load', patchHeroTitleEmblem);
+
   /* 中间 tu*zhong：根 <svg> 默认 xMidYMid，在细长视口里会把方形 viewBox 垂直居中，整块图显得偏下。
       hydration 后补一次属性，避免旧缓存 JS 未带 preserveAspectRatio。 */
   function patchZhongSvgAlign() {
@@ -1054,6 +1153,97 @@
     setTimeout(patchZhongSvgAlign, ms);
   });
   window.addEventListener('load', patchZhongSvgAlign);
+
+  /**
+   * tu*zhong 区：不加大 margin 时让滚轮「更费劲」——把每次 wheel 的位移乘以系数（<1 则要滚更多下才走同样距离）。
+   * 改 SCROLLY_WHEEL_DAMP 即可：越小越「重」，1 为关闭。建议 0.35～0.65。
+   * 阻尼仅感当：某张 .step 在读屏带内，且当前视口「主区域」不在下列过渡区块里（这些区块一律原生滚动）：
+   *   首屏标题区、#intro、#iconography、想象中的神插图区（.two-gods 所在 section）、#wheat-layers、#pantheon、#article-sources。
+   * 若要再加带 id 的区块，把 id 推进 TRANSITION_ZONE_IDS。
+   */
+  (function setupScrollyWheelDamp() {
+    var SCROLLY_WHEEL_DAMP = 0.35;
+    if (SCROLLY_WHEEL_DAMP >= 0.999) return;
+
+    var STEP_DAMP_BAND_TOP = 0.08;
+    var STEP_DAMP_BAND_BOT = 0.92;
+
+    var TRANSITION_ZONE_IDS = [
+      'wheat-layers',
+      'intro',
+      'iconography',
+      'pantheon',
+      'article-sources'
+    ];
+    var TRANSITION_VIEW_TOP = 0.18;
+    var TRANSITION_VIEW_BOT = 0.82;
+    var TRANSITION_MIN_OVERLAP_RATIO = 0.12;
+
+    function overlapBandPx(rect, bandTop, bandBot) {
+      if (!rect || rect.height <= 0) return 0;
+      var t = Math.max(rect.top, bandTop);
+      var b = Math.min(rect.bottom, bandBot);
+      return b > t ? b - t : 0;
+    }
+
+    function transitionZoneBlocksDamp() {
+      var vh = window.innerHeight || 600;
+      var bandTop = vh * TRANSITION_VIEW_TOP;
+      var bandBot = vh * TRANSITION_VIEW_BOT;
+      var need = vh * TRANSITION_MIN_OVERLAP_RATIO;
+      var k;
+
+      var hero = document.querySelector('#content > section:first-of-type');
+      if (overlapBandPx(hero && hero.getBoundingClientRect(), bandTop, bandBot) >= need) {
+        return true;
+      }
+
+      for (k = 0; k < TRANSITION_ZONE_IDS.length; k++) {
+        var el = document.getElementById(TRANSITION_ZONE_IDS[k]);
+        if (overlapBandPx(el && el.getBoundingClientRect(), bandTop, bandBot) >= need) {
+          return true;
+        }
+      }
+
+      var twoGodsRoot = document.querySelector('#content section .two-gods');
+      var twoGodsSec = twoGodsRoot && twoGodsRoot.closest('section');
+      if (overlapBandPx(twoGodsSec && twoGodsSec.getBoundingClientRect(), bandTop, bandBot) >= need) {
+        return true;
+      }
+
+      return false;
+    }
+
+    function stepInDampBand() {
+      var steps = document.querySelectorAll(
+        '#content section[id^="gods-iconography"] .step.svelte-1ifywjh'
+      );
+      var vh = window.innerHeight || 600;
+      var bandTop = vh * STEP_DAMP_BAND_TOP;
+      var bandBot = vh * STEP_DAMP_BAND_BOT;
+      for (var i = 0; i < steps.length; i++) {
+        var r = steps[i].getBoundingClientRect();
+        if (r.height <= 0) continue;
+        if (r.bottom <= bandTop || r.top >= bandBot) continue;
+        return true;
+      }
+      return false;
+    }
+
+    window.addEventListener(
+      'wheel',
+      function (e) {
+        if (transitionZoneBlocksDamp()) return;
+        if (!stepInDampBand()) return;
+        if (e.ctrlKey) return;
+        e.preventDefault();
+        var dy = e.deltaY * SCROLLY_WHEEL_DAMP;
+        var dx = e.deltaX * SCROLLY_WHEEL_DAMP;
+        window.scrollBy({ left: dx, top: dy, behavior: 'auto' });
+      },
+      { passive: false }
+    );
+  })();
 
   // 之前这里会强制移除 .step-title，现在已停用以恢复标题与横线
 </script>

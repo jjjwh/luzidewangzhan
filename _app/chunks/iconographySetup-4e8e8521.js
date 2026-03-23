@@ -642,8 +642,8 @@ function xe(r, e, i) {
         const texts = evt.element.querySelectorAll && evt.element.querySelectorAll('.step-text, .step-title');
         if(!texts || !texts.length) return;
         for(let i=0;i<texts.length;i++){
-          // 隐藏/显示文字，阈值 0.5（可微调为 0.45/0.55）
-          if(typeof evt.progress === 'number' && evt.progress > 0.5) {
+          /* 阈值越接近 1：要滚过更多本步区域才隐藏文字；0.5 时略滑一下就会没 */
+          if(typeof evt.progress === 'number' && evt.progress > 0.88) {
             // 立即隐藏：临时禁用过渡以实现“突然消失”效果
             texts[i].style.transition = 'none';
             texts[i].style.opacity = '0';
@@ -656,7 +656,7 @@ function xe(r, e, i) {
         try {
           // 同时将步骤卡片的背景设为透明（否则文字消失但背景仍可见）
           if(evt.element && evt.element.style) {
-            if(typeof evt.progress === 'number' && evt.progress > 0.5) {
+            if(typeof evt.progress === 'number' && evt.progress > 0.88) {
               evt.element.style.backgroundColor = 'transparent';
             } else {
               // 清除内联样式以恢复到 CSS 定义的背景色

@@ -4,20 +4,20 @@
     --category-creation: #D28360;
     --category-elemental: #5C8A73;
     --category-human: #B08699;
-    --category-secondary: #D90B0B;
+    --category-secondary: rgb(55, 141, 57);
     
     --category-primordial-light: #EAF8FB;
     --category-creation-light: #FFF0E9;
     --category-elemental-light: #F3F7F5;
     --category-human-light: #F9F6F8;
-    --category-secondary-light: #FFEDED;
+    --category-secondary-light: #eaf3eb;
     
     --color-background: rgb(244,241,239);
     --color-background-transparent: rgba(244, 241, 239, .8);
     --color-background-2: rgb(244,241,239);
     
-    --color-highlight: #d90b0b;
-    --color-highlight-lighter: #fbf2f2;
+    --color-highlight: rgb(55, 141, 57);
+    --color-highlight-lighter: #eaf3eb;
     
     --color-secondary: #000000;
     --color-black: #000000;

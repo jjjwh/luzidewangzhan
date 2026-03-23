@@ -60,7 +60,7 @@ h3.svelte-1ifywjh {
 /* --- 滚动步骤卡片 (Step Card) --- */
 .step.svelte-1ifywjh {
     width: 100%;
-    margin: 30rem auto 2rem; /* 上下留出巨大间距，为了滚动效果 */
+    margin: 20rem auto 2rem; /* 上下留出巨大间距，为了滚动效果 */
     padding: 1rem;
     opacity: 1;
     transition: opacity .4s;
@@ -249,8 +249,9 @@ h3.svelte-1ifywjh {
         display: none;
     }
 
+    /* 必须与上方默认 .step 同步：此前固定写 50rem，会覆盖你在第 63 行改的 margin，桌面端看起来像「怎么改都没用」 */
     .step.svelte-1ifywjh {
-        margin: 50rem auto 2rem;
+        margin: 20rem auto 2rem;
         background-color: transparent;
     }
 }
