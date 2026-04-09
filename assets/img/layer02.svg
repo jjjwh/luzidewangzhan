@@ -159,15 +159,15 @@
     <path class="cls-18" d="M1005.41,489.36c6.1,13.85,6.14,30.65,0,44.49-6.14-13.84-6.1-30.64,0-44.49h0Z"/>
   </g>
   <g id="duiyin">
-    <rect class="cls-6" x="605.06" width="943.84" height="350.03"/>
-    <path class="cls-10" d="M824,55.22c19.11,43.43,19.26,96.12,0,139.52-19.26-43.4-19.12-96.09,0-139.52h0Z"/>
-    <path class="cls-10" d="M1219.45,129.72c9.32,16.4,9.39,36.3,0,52.69-9.39-16.39-9.32-36.29,0-52.69h0Z"/>
-    <path class="cls-10" d="M1373.45,129.72c9.32,16.4,9.39,36.3,0,52.69-9.39-16.39-9.32-36.29,0-52.69h0Z"/>
-    <path class="cls-10" d="M1278.45,76.68c9.32,16.4,9.39,36.3,0,52.69-9.39-16.39-9.32-36.29,0-52.69h0Z"/>
-    <text class="cls-15" transform="translate(755.91 268.98)"><tspan x="0" y="0">每一粒稻谷</tspan><tspan x="-36" y="28.8">代表一个农耕节日</tspan></text>
-    <text class="cls-15" transform="translate(1184.36 269.16)"><tspan x="0" y="0">稻谷的位置取决于</tspan><tspan x="0" y="28.8">节日的日期与地点</tspan></text>
-    <text class="cls-15" transform="translate(1144.79 63.32)"><tspan x="0" y="0">地区</tspan></text>
-    <text class="cls-15" transform="translate(1385.18 213.76)"><tspan x="0" y="0">时间</tspan></text>
-    <polyline class="cls-1" points="1130.01 64.13 1141.13 43.41 1141.13 219.72 1429.07 219.72 1408.05 234.55"/>
+    <rect class="cls-6" x="605.06" y="861.57" width="943.84" height="350.03"/>
+    <path class="cls-10" d="M824,916.79c19.11,43.43,19.26,96.12,0,139.52-19.26-43.4-19.12-96.09,0-139.52h0Z"/>
+    <path class="cls-10" d="M1219.45,991.29c9.32,16.4,9.39,36.3,0,52.69-9.39-16.39-9.32-36.29,0-52.69h0Z"/>
+    <path class="cls-10" d="M1373.45,991.29c9.32,16.4,9.39,36.3,0,52.69-9.39-16.39-9.32-36.29,0-52.69h0Z"/>
+    <path class="cls-10" d="M1278.45,938.25c9.32,16.4,9.39,36.3,0,52.69-9.39-16.39-9.32-36.29,0-52.69h0Z"/>
+    <text class="cls-15" transform="translate(755.91 1130.55)"><tspan x="0" y="0">每一粒稻谷</tspan><tspan x="-36" y="28.8">代表一个农耕节日</tspan></text>
+    <text class="cls-15" transform="translate(1184.36 1130.73)"><tspan x="0" y="0">稻谷的位置取决于</tspan><tspan x="0" y="28.8">节日的日期与地点</tspan></text>
+    <text class="cls-15" transform="translate(1144.79 924.89)"><tspan x="0" y="0">地区</tspan></text>
+    <text class="cls-15" transform="translate(1385.18 1075.33)"><tspan x="0" y="0">时间</tspan></text>
+    <polyline class="cls-1" points="1130.01 925.7 1141.13 904.97 1141.13 1081.29 1429.07 1081.29 1408.05 1096.12"/>
   </g>
 </svg>
