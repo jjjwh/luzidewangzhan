@@ -368,7 +368,8 @@
     pointer-events: all;
   }
 
-  #wheat-big-label {
+  #wheat-big-label,
+  .wheat-hover-label {
     position: absolute;
     left: 0;
     top: 0;
@@ -391,7 +392,8 @@
       -2px -2px 0 rgb(244, 241, 239), 2px -2px 0 rgb(244, 241, 239), -2px 2px 0 rgb(244, 241, 239), 2px 2px 0 rgb(244, 241, 239);
   }
 
-  #wheat-big-label.visible {
+  #wheat-big-label.visible,
+  .wheat-hover-label.visible {
     visibility: visible;
     opacity: 1;
   }
@@ -519,6 +521,273 @@
     '处暑', '秋分 秋社日', '冬至', '禾节', '彝族尝新节', '春社日', '小暑尝新米', '卡尔江哇', '开犁节', '仫佬年',
     '瑶族社日节', '畲族尝新节', '浴牛节', '苗族祭牛神', '牛王节', '侗族吃新节', '立春祭'
   ];
+
+  var wheatLabelMapLayer02 = {
+    'pary-46': '寒食节',
+    'pary-01': '立春祭',
+    'pary-124': '赶分社',
+    'pary-41': '祈蚕节',
+    'pary-129': '库市',
+    'pary-21': '活路节',
+    'pary-130': '扩尼哈尼',
+    'pary-131': '巡田坝节',
+    'pary-128': '棒棒会',
+    'pary-22': '花腰彝祭龙节',
+    'pary-97': '特懋克',
+    'pary-66': '庄稼会',
+    'pary-92': '佤族播种节',
+    'pary-95': '水族祭龙',
+    'pary-96': '彝族祈雨节',
+    'pary-69': '龙王潭祭龙',
+    'pary-37': '洗牛脚会',
+    'pary-71': '分龙节',
+    'pary-05': '浴牛节',
+    'pary-91': '苗族祈雨节',
+    'pary-11': '小暑尝新米',
+    'pary-02': '侗族吃新节',
+    'pary-90': '卯坡节',
+    'pary-76': '曲科节',
+    'pary-113': '哈尼新米节',
+    'pary-54': '宋出节',
+    'pary-86': '曼恩南沙拜',
+    'pary-85': '好希早',
+    'pary-20': '干古木',
+    'pary-61': '丰年祭',
+    'pary-13': '彝族尝新节',
+    'pary-89': '阿昌尝新节',
+    'pary-55': '白族尝新节',
+    'pary-06': '畲族尝新节',
+    'pary-79': '纳顿',
+    'pary-80': '昂德琳节',
+    'pary-78': '安地若木节',
+    'pary-87': '彝族赔龙节',
+    'pary-84': '傈僳族收获节',
+    'pary-10': '卡尔江哇',
+    'pary-52': '仡佬牛王节',
+    'pary-38': '熬冬',
+    'pary-82': '拜小岁',
+    'pary-75': '怒族祭谷节',
+    'pary-63': '哈尼祭龙游寨',
+    'pary-59': '京族新米节'
+  };
+
+  var wheatLabelMapLayer03 = {
+    'pary-28': '流头节',
+    'pary-73': '流头节',
+    'pary-114': '撒班节',
+    'pary-19': '塔吉克播种节',
+    'pary-019': '塔吉克播种节',
+    'pary-98': '塔吉克引水节',
+    'pary-42': '蚕花节',
+    'pary-33': '万年开秧门',
+    'pary-40': '祭车神',
+    'pary-09': '开犁节',
+    'pary-39': '安苗节',
+    'pary-45': '送大暑船',
+    'pary-34': '保苗节',
+    'pary-90': '卯坡节',
+    'pary-36': '驱虫保苗节',
+    'pary-49': '过赶年',
+    'pary-04': '苗族祭牛神',
+    'pary-31': '绕三灵',
+    'pary-43': '打泥巴仗节',
+    'pary-111': '荞菜节',
+    'pary-29': '哈尼开秧门',
+    'pary-56': '分肉串节',
+    'pary-132': '分肉串节',
+    'pary-14': '禾节',
+    'pary-68': '头牙',
+    'pary-81': '尼乌节',
+    'pary-65': '旭独龙节',
+    'pary-130': '扩尼哈尼',
+    'pary-32': '蚂虫另节',
+    'pary-123': '藏历新年',
+    'pary-77': '望果节',
+    'pary-53': '端节',
+    'pary-51': '壮族霜降节',
+    'pary-50': '羌历年',
+    'pary-08': '仫佬年',
+    'pary-27': '芦笙会',
+    'pary-23': '耍歌堂',
+    'pary-24': '五谷母节',
+    'pary-83': '杨节',
+    'pary-60': '尾牙',
+    'pary-47': '潮汕冬节',
+    'pary-48': '做冬',
+    'pary-127': '立春',
+    'pary-18': '雨水',
+    'pary-122': '惊蛰',
+    'pary-121': '春分',
+    'pary-120': '清明',
+    'pary-119': '谷雨',
+    'pary-118': '立夏',
+    'pary-117': '小满',
+    'pary-116': '芒种',
+    'pary-115': '夏至',
+    'pary-112': '小暑',
+    'pary-110': '大暑',
+    'pary-109': '立秋',
+    'pary-17': '处暑',
+    'pary-108': '白露',
+    'pary-16': '秋分',
+    'pary-107': '寒露',
+    'pary-106': '霜降',
+    'pary-105': '立冬',
+    'pary-104': '小雪',
+    'pary-103': '大雪',
+    'pary-15': '冬至',
+    'pary-102': '小寒',
+    'pary-101': '大寒'
+  };
+
+  var wheatLabelMapLayer35 = {
+    'pary-01': '立春祭',
+    'pary-02': '侗族吃新节',
+    'pary-03': '牛王节',
+    'pary-04': '苗族祭牛神',
+    'pary-05': '浴牛节',
+    'pary-06': '畲族尝新节',
+    'pary-07': '瑶族社日节',
+    'pary-08': '仫佬年',
+    'pary-09': '开犁节',
+    'pary-10': '卡尔江哇',
+    'pary-11': '小暑尝新米',
+    'pary-12': '春社日',
+    'pary-13': '彝族尝新节',
+    'pary-14': '禾节',
+    'pary-15': '冬至',
+    'pary-16': '秋分 秋社日',
+    'pary-17': '处暑',
+    'pary-18': '雨水',
+    'pary-19': '塔吉克播种节',
+    'pary-20': '干古木',
+    'pary-21': '活路节',
+    'pary-22': '花腰彝祭龙节',
+    'pary-23': '耍歌堂',
+    'pary-24': '五谷母节',
+    'pary-25': '龙抬头祭龙节',
+    'pary-26': '库史',
+    'pary-27': '芦笙会',
+    'pary-28': '流头节',
+    'pary-29': '哈尼开秧门',
+    'pary-30': '祭龙',
+    'pary-31': '绕三灵',
+    'pary-32': '蚂虫另节',
+    'pary-33': '万年开秧门',
+    'pary-34': '保苗节',
+    'pary-35': '罢谷节',
+    'pary-36': '驱虫保苗节',
+    'pary-37': '洗牛脚会',
+    'pary-38': '熬冬',
+    'pary-39': '安苗节',
+    'pary-40': '祭车神',
+    'pary-41': '祈蚕节',
+    'pary-42': '蚕花节',
+    'pary-43': '打泥巴仗节',
+    'pary-44': '赶秋节',
+    'pary-45': '送大暑船',
+    'pary-46': '寒食节',
+    'pary-47': '潮汕冬节',
+    'pary-48': '做冬',
+    'pary-49': '过赶年',
+    'pary-50': '羌历年',
+    'pary-51': '壮族霜降节',
+    'pary-52': '仡佬牛王节',
+    'pary-53': '端节',
+    'pary-54': '宋出节',
+    'pary-55': '白族尝新节',
+    'pary-56': '分肉串节',
+    'pary-57': '社饭节',
+    'pary-58': '依饭节',
+    'pary-59': '京族新米节',
+    'pary-60': '尾牙',
+    'pary-61': '丰年祭',
+    'pary-62': '水族祭白龙',
+    'pary-63': '哈尼祭龙游寨',
+    'pary-64': '壮族祭龙',
+    'pary-65': '旭独龙节',
+    'pary-66': '庄稼会',
+    'pary-67': '播种祭',
+    'pary-68': '头牙',
+    'pary-69': '龙王谭祭龙',
+    'pary-70': '火把节',
+    'pary-71': '分龙节',
+    'pary-72': '虫王节',
+    'pary-73': '流头节',
+    'pary-74': '填仓节',
+    'pary-75': '怒族祭谷节',
+    'pary-76': '曲科节',
+    'pary-77': '望果节',
+    'pary-78': '安地若木节',
+    'pary-79': '纳顿',
+    'pary-80': '昂德琳节',
+    'pary-81': '尼乌节',
+    'pary-82': '拜小岁',
+    'pary-83': '杨节',
+    'pary-84': '傈僳族收获节',
+    'pary-85': '好希早',
+    'pary-86': '曼恩南沙拜',
+    'pary-87': '彝族赔龙节',
+    'pary-88': '尝新节',
+    'pary-89': '阿昌尝新节',
+    'pary-90': '卯坡节',
+    'pary-91': '苗族祈雨节',
+    'pary-92': '佤族播种节',
+    'pary-93': '讨葱蒜',
+    'pary-94': '布衣开耕节',
+    'pary-95': '水族祭龙',
+    'pary-96': '苗彝族祈雨节',
+    'pary-97': '特懋克',
+    'pary-98': '塔吉克饮水节',
+    'pary-99': '诺鲁牧节',
+    'pary-100': '抹黑节',
+    'pary-101': '大寒',
+    'pary-102': '小寒',
+    'pary-103': '大雪',
+    'pary-104': '小雪',
+    'pary-105': '立冬',
+    'pary-106': '霜降',
+    'pary-107': '寒露',
+    'pary-108': '白露',
+    'pary-109': '立秋',
+    'pary-110': '大暑',
+    'pary-111': '荞菜节',
+    'pary-112': '小暑',
+    'pary-113': '哈尼新米节',
+    'pary-114': '撒班节',
+    'pary-115': '夏至',
+    'pary-116': '芒种',
+    'pary-117': '小满',
+    'pary-118': '立夏',
+    'pary-119': '谷雨',
+    'pary-120': '清明',
+    'pary-121': '春分',
+    'pary-122': '惊蛰',
+    'pary-123': '藏历新年',
+    'pary-124': '赶分社',
+    'pary-125': '春节',
+    'pary-126': '打春牛',
+    'pary-127': '立春',
+    'pary-128': '棒棒会',
+    'pary-129': '库市',
+    'pary-130': '扩尼哈尼',
+    'pary-131': '巡天坝节',
+    'pary-132': '分肉串节',
+    'pary-133': '社饭节',
+    'pary-134': '瑶族社日'
+  };
+
+  function getWheatLabel(paryKey, index, labelSet) {
+    if (labelSet === 'combined') {
+      if (paryKey && wheatLabelMapLayer02[paryKey]) return wheatLabelMapLayer02[paryKey];
+      if (paryKey && wheatLabelMapLayer03[paryKey]) return wheatLabelMapLayer03[paryKey];
+      return null;
+    }
+
+    var activeMap = labelSet === 'layer35' ? wheatLabelMapLayer35 : labelSet === 'layer3' ? wheatLabelMapLayer03 : wheatLabelMapLayer02;
+    if (paryKey && activeMap[paryKey]) return activeMap[paryKey];
+    return null;
+  }
 
   function findGodsSection() {
     var el = document.querySelector('section .two-gods');
@@ -735,6 +1004,31 @@
 
     var bigLabelEl = null;
     var labelsAllowed = false;
+    var layer4TextDuiyinGroup = null;
+    var layer4TextBaseTransform = '';
+    var activeWheatLabelSet = 'layer2';
+    var hoverLabelMap = Object.create(null);
+    var hoverLabelList = [];
+
+    function setHoverLabelsCovered(isCovered) {
+      if (!isCovered) return;
+      hoverLabelList.forEach(function (labelEl) {
+        labelEl.classList.remove('visible');
+        labelEl.style.visibility = 'hidden';
+        labelEl.style.opacity = '0';
+      });
+    }
+
+    function createHoverLabel(text, x, y, labelClass) {
+      var labelEl = document.createElement('div');
+      labelEl.className = 'wheat-hover-label ' + labelClass + ' visible';
+      labelEl.textContent = text;
+      labelEl.style.left = x + 'px';
+      labelEl.style.top = y + 'px';
+      wrap.appendChild(labelEl);
+      hoverLabelList.push(labelEl);
+      return labelEl;
+    }
 
     function setWheatResponsiveVars() {
       var vw = window.innerWidth || document.documentElement.clientWidth || 0;
@@ -767,21 +1061,21 @@
       if (vw >= 1600) {
         desktopScale = 1.27;
         shiftY = 42;
-        layer4Offset = 20;
+        layer4Offset = 25;
         layer5Offset = -6;
         layer6Offset = -27;
         sideGap = 128;
       } else if (vw >= 1366) {
         desktopScale = 1.24;
         shiftY = 38;
-        layer4Offset = 18;
+        layer4Offset = 25;
         layer5Offset = -8;
         layer6Offset = -26;
         sideGap = 96;
       } else if (vw >= 1024) {
         desktopScale = 1.2;
         shiftY = 32;
-        layer4Offset = 14;
+        layer4Offset = 25;
         layer5Offset = -8;
         layer6Offset = -25;
         sideGap = 80;
@@ -833,9 +1127,10 @@
 
       var paryNodes = textLayer.querySelectorAll('[id^="pary-"]');
       paryNodes.forEach(function (el, i) {
+        var paryKey = el.getAttribute('data-name') || el.getAttribute('id') || '';
         el.style.cursor = 'pointer';
-        function positionLabelAtEvent(ev) {
-          if (!bigLabelEl) return;
+        function positionLabelAtEvent(labelEl, ev) {
+          if (!labelEl) return;
           var wrapRect = wrap.getBoundingClientRect();
           var offsetX = 14;
           var offsetY = 14;
@@ -843,31 +1138,43 @@
           var y = ev.clientY - wrapRect.top + offsetY;
 
           // 防止溢出 wrap
-          var maxX = wrapRect.width - (bigLabelEl.offsetWidth || 0) - 8;
-          var maxY = wrapRect.height - (bigLabelEl.offsetHeight || 0) - 8;
+          var maxX = wrapRect.width - (labelEl.offsetWidth || 0) - 8;
+          var maxY = wrapRect.height - (labelEl.offsetHeight || 0) - 8;
           x = Math.max(8, Math.min(maxX, x));
           y = Math.max(8, Math.min(maxY, y));
 
-          bigLabelEl.style.left = x + 'px';
-          bigLabelEl.style.top = y + 'px';
+          labelEl.style.left = x + 'px';
+          labelEl.style.top = y + 'px';
         }
 
         el.addEventListener('mouseenter', function (ev) {
           if (!labelsAllowed) return;
-          var text = (typeof wheatLabels !== 'undefined' && wheatLabels[i] !== undefined && wheatLabels[i] !== '')
-            ? wheatLabels[i] : ('标签 ' + (i + 1));
-          bigLabelEl.textContent = text;
-          bigLabelEl.classList.add('visible');
-          positionLabelAtEvent(ev);
+          var labelText = getWheatLabel(paryKey, i, activeWheatLabelSet);
+          if (!labelText) return;
+          var labelClass = activeWheatLabelSet === 'layer2' ? 'layer-2-label' : 'layer-3-label';
+          var labelEl = hoverLabelMap[paryKey];
+          if (!labelEl) {
+            labelEl = createHoverLabel(labelText, 0, 0, labelClass);
+            hoverLabelMap[paryKey] = labelEl;
+          }
+          labelEl.textContent = labelText;
+          labelEl.style.visibility = 'visible';
+          labelEl.style.opacity = '1';
+          labelEl.classList.add('visible');
+          positionLabelAtEvent(labelEl, ev);
         });
         el.addEventListener('mousemove', function (ev) {
           if (!labelsAllowed) return;
-          if (!bigLabelEl || !bigLabelEl.classList.contains('visible')) return;
-          positionLabelAtEvent(ev);
+          var labelEl = hoverLabelMap[paryKey];
+          if (!labelEl || !labelEl.classList.contains('visible')) return;
+          positionLabelAtEvent(labelEl, ev);
         });
         el.addEventListener('mouseleave', function () {
-          bigLabelEl.textContent = '';
-          bigLabelEl.classList.remove('visible');
+          var labelEl = hoverLabelMap[paryKey];
+          if (!labelEl) return;
+          labelEl.classList.remove('visible');
+          labelEl.style.visibility = 'hidden';
+          labelEl.style.opacity = '0';
         });
       });
     }
@@ -888,34 +1195,31 @@
       const progress = clamp((clampedScroll - sectionTop) / denom, 0, 1);
 
       // 前景层逻辑：
-      // - layer02~layer04（含 layer3.5）：正常渐变出现（opacity: 0 -> 1）
-      // - layer05~layer06：一进入区间就直接显示（opacity: 1），实现“覆盖前面”的效果
+      // - 所有前景层都在各自区间的前 1/2 达到完全不透明
       layers.forEach((el, index) => {
         const start = (index / n) * structuralSpan;
         const end = ((index + 1) / n) * structuralSpan;
         const t = clamp((progress - start) / (end - start), 0, 1);
-        if (index >= 4) {
-          // layer05 / layer06：在各自区间的前 1/4（t=0.25）就达到完全不透明
-          var appearQuickPortion = 0.25; // 0~1，越小越“早变满”
-          el.style.opacity = clamp(t / appearQuickPortion, 0, 1);
-        } else {
-          // layer02 / layer03 / layer3.5 / layer04
-          el.style.opacity = t;
-        }
+        var appearMidPortion = 0.5; // 在区间中点(t=0.5)达到完全不透明
+        el.style.opacity = clamp(t / appearMidPortion, 0, 1);
       });
 
       // 当 layer06 出现时，强制让 layer02~layer05 全透明（只保留 layer06）
+      const layer05OpacityNow = layers[4] ? parseFloat(layers[4].style.opacity || '0') : 0;
       const layer06OpacityNow = layers[5] ? parseFloat(layers[5].style.opacity || '0') : 0;
       if (layer06OpacityNow > 0) {
-        for (let i = 0; i <= 4; i++) {
+        for (let i = 0; i <= 3; i++) {
           if (layers[i]) layers[i].style.opacity = '0';
+        }
+        if (layers[4]) {
+          layers[4].style.opacity = String(Math.max(0, layer05OpacityNow * (1 - layer06OpacityNow)));
         }
       }
 
       // duiyin 动画（复制 layer06 的同款逻辑到 layer02 / 03 / 3.5 / 05 / 06）
       // 你主要调下面 4 个参数即可（所有层同款）
       var duiyinMoveX = 0;      // 左右移动（SVG 坐标单位）
-      var duiyinMoveY = 900;    // 向下移动的总距离（SVG 坐标单位）
+      var duiyinMoveY = -900;   // 向上移动的总距离（SVG 坐标单位）
       var duiyinStretch = 2;    // >1：越大越慢、到位越晚（建议 1.2 ~ 2.2）
       var duiyinEasePower = 1;  // >1：前段更慢（建议 1.6 ~ 3.5）
       var duiyinFadeAfter = 0.06; // 到位后再滚动多少“进度单位”淡出（0=立刻消失）
@@ -934,6 +1238,8 @@
         'layer3-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
         // layer3.5
         'layer35-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
+        // layer04（文字交互覆盖层中的 duiyin）
+        'layer4-': { stretch: 1, easePower: 1.6, fadeAfter: 0.08 },
         // layer05（会很快被 layer06 盖住，通常需要更早到位）
         // 让 fade-in 更快，避免“整张层也像渐变出现”的视觉错觉
         'layer5-': { stretch: 1, easePower: 1.2, fadeAfter: 0.08 },
@@ -974,7 +1280,8 @@
         // - fade-out：在 duiyinEnd 之后额外滚动 fadeAfter 的长度后从 1 → 0
         var fadeInDen = Math.max(duiyinEnd - start, 1e-6);
         var fadeInT = clamp((progress - start) / fadeInDen, 0, 1);
-        var opacity = fadeInT;
+        var fadeInMidPortion = 0.5; // 在本层位移进度中点达到完全不透明
+        var opacity = clamp(fadeInT / fadeInMidPortion, 0, 1);
 
         if (fadeAfter <= 0) {
           // 立即淡出（在到位点之后）
@@ -997,12 +1304,44 @@
       applyDuiyinForLayer('layer2-', 0);
       applyDuiyinForLayer('layer3-', 1);
       applyDuiyinForLayer('layer35-', 2);
+      // layer04 的可见层是 layer-text（不是被隐藏的普通 layer-4），单独同步同款位移
+      if (layer4TextDuiyinGroup) {
+        var layer4Override = duiyinOverrides['layer4-'] || {};
+        var layer4MoveX = (layer4Override.moveX !== undefined) ? layer4Override.moveX : duiyinMoveX;
+        var layer4MoveY = (layer4Override.moveY !== undefined) ? layer4Override.moveY : duiyinMoveY;
+        var layer4Stretch = (layer4Override.stretch !== undefined) ? layer4Override.stretch : duiyinStretch;
+        var layer4EasePower = (layer4Override.easePower !== undefined) ? layer4Override.easePower : duiyinEasePower;
+
+        var layer4Start = (3 / n) * structuralSpan;
+        var layer4End = ((3 + 1) / n) * structuralSpan;
+        var layer4DuiyinEnd = layer4Start + (layer4End - layer4Start) * layer4Stretch;
+        layer4DuiyinEnd = Math.max(layer4Start + 1e-6, Math.min(structuralSpan, layer4DuiyinEnd));
+
+        var layer4RawT = (progress - layer4Start) / Math.max(layer4DuiyinEnd - layer4Start, 1e-6);
+        var layer4T = clamp(layer4RawT, 0, 1);
+        var layer4TSlow = Math.pow(layer4T, layer4EasePower);
+        var layer4Dx = layer4MoveX * layer4TSlow;
+        var layer4Dy = layer4MoveY * layer4TSlow;
+
+        var layer4Translate = ' translate(' + layer4Dx + ' ' + layer4Dy + ')';
+        layer4TextDuiyinGroup.setAttribute('transform', (layer4TextBaseTransform || '').trim() + layer4Translate);
+      }
       applyDuiyinForLayer('layer5-', 4);
       applyDuiyinForLayer('layer6-', 5);
 
-      // 文字交互覆盖层（layer04 的 overlay）要跟随 layer04 的透明度，否则会出现：
-      // - layer02/03 阶段也能触发文字框（因为 overlay 虽透明但仍能接鼠标）
+      // 文字交互覆盖层（layer04 的 overlay）在 layer02 刚出现时就提前解锁 hover；
+      // 可见度仍按 layer04 的透明度控制，避免整层过早显示。
       const layer04Base = layers[3]; // layers[0]=layer02, [1]=layer03, [2]=layer3.5, [3]=layer04
+      const layer02Base = layers[0];
+      const layer02T = layer02Base ? parseFloat(layer02Base.style.opacity || '0') : 0;
+      const layer02Visible = layer02T > 0.02;
+      const layer03Base = layers[1];
+      const layer03T = layer03Base ? parseFloat(layer03Base.style.opacity || '0') : 0;
+      const layer03Visible = layer03T > 0.02;
+      const layer35Base = layers[2];
+      const layer35T = layer35Base ? parseFloat(layer35Base.style.opacity || '0') : 0;
+      const layer35Visible = layer35T > 0.02;
+      activeWheatLabelSet = layer35Visible ? 'layer35' : layer03Visible ? 'combined' : 'layer2';
       const layer04T = layer04Base ? parseFloat(layer04Base.style.opacity || '0') : 0;
       const layer05Visible = layers[4] ? parseFloat(layers[4].style.opacity || '0') > 0 : false;
       const layer06Visible = layers[5] ? parseFloat(layers[5].style.opacity || '0') > 0 : false;
@@ -1012,9 +1351,11 @@
         // 当 layer05/06 出现时，文字层必须隐藏（否则会压在 05/06 上面）
         const overlayOpacity = topCoverVisible ? 0 : layer04T;
         textOverlay.style.opacity = String(overlayOpacity);
-        // 只有当 overlay 可见且未被 05/06 覆盖时才允许触发 hover/文本框
-        textOverlay.style.pointerEvents = (!topCoverVisible && overlayOpacity > 0.02) ? 'auto' : 'none';
+        // layer02 / layer03 / layer3.5 可见时都允许 hover，overlay 的显隐仍按 layer04 的透明度走
+        textOverlay.style.pointerEvents = (!topCoverVisible && (layer02Visible || layer03Visible || layer35Visible)) ? 'auto' : 'none';
       }
+
+      setHoverLabelsCovered(topCoverVisible);
 
       // 背景层（layer01，class 为 .wheat-layer.bg）始终可见，固定在底层
       var bgLayer = section.querySelector('.wheat-layer.bg');
@@ -1022,14 +1363,11 @@
         bgLayer.style.opacity = 1;
       }
 
-      // 始终允许显示放大的文字标签（只要鼠标悬停在 pary-* 上）
-      labelsAllowed = !topCoverVisible && layer04T > 0.02;
+      // layer02 / layer03 / layer3.5 出现时都解锁 hover，文本盒子仍沿用现有 opacity transition
+      labelsAllowed = !topCoverVisible && (layer02Visible || layer03Visible || layer35Visible);
 
-      // 如果 05/06 已覆盖，确保文本框也隐藏
-      if (topCoverVisible && bigLabelEl) {
-        bigLabelEl.textContent = '';
-        bigLabelEl.classList.remove('visible');
-      }
+      // layer02 / layer03 还没进入有效阶段时，不主动清理已生成的标签；
+      // 这样 layer02 的标签不会在 layer03 出现后被抹掉。
     }
 
     setWheatResponsiveVars();
@@ -1070,6 +1408,11 @@
         var doc = parser.parseFromString(html, 'image/svg+xml');
         var svg = doc.querySelector('svg');
         if (!svg) return;
+        var layer4Duiyin = svg.querySelector('#duiyin');
+        if (layer4Duiyin) {
+          layer4TextDuiyinGroup = layer4Duiyin;
+          layer4TextBaseTransform = layer4Duiyin.getAttribute('transform') || '';
+        }
         var layer4TextWrap = document.createElement('div');
         layer4TextWrap.className = 'wheat-layer layer-4 layer-text';
         layer4TextWrap.appendChild(svg);
